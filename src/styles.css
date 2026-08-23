@@ -6996,7 +6996,7 @@ table.data tr.done-row .text-link {
 .modal-card {
   background: var(--surface);
   color: var(--ink);
-  border: 1px solid var(--border-2);
+  border: none;
   border-radius: 6px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   width: min(440px, 100%);
