@@ -1667,14 +1667,17 @@ textarea:focus {
 [data-theme="light"] textarea {
   color-scheme: light;
 }
-/* Paper-styled forms stay white in BOTH themes — native date-picker icons
-   must stay dark or they vanish on the white sheet in dark mode. */
+/* Paper-styled forms + the sign-in card stay white in BOTH themes — native
+   widgets (date pickers, autofill, select popups) must render light there. */
 [data-theme="dark"] .srf-wrap input,
 [data-theme="dark"] .srf-wrap select,
 [data-theme="dark"] .srf-wrap textarea,
 [data-theme="dark"] .att-sheet input,
 [data-theme="dark"] .att-sheet select,
-[data-theme="dark"] .att-sheet textarea {
+[data-theme="dark"] .att-sheet textarea,
+[data-theme="dark"] .gate-card input,
+[data-theme="dark"] .gate-card select,
+[data-theme="dark"] .gate-card textarea {
   color-scheme: light;
 }
 /* Browser autofill paints its own (dark) background — keep the paper forms white */
@@ -1690,6 +1693,15 @@ textarea:focus {
   box-shadow: 0 0 0 1000px #ffffff inset;
   -webkit-text-fill-color: #000000;
   caret-color: #000000;
+}
+/* Sign-in card autofill stays on the white card in both themes */
+.gate-card input:-webkit-autofill,
+.gate-card input:-webkit-autofill:hover,
+.gate-card input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+  box-shadow: 0 0 0 1000px #ffffff inset;
+  -webkit-text-fill-color: #1a2033;
+  caret-color: #1a2033;
 }
 /* Belt-and-braces: the browsers that ignore color-scheme still honour
    background/color on <option>. */
