@@ -16,7 +16,6 @@ import {
   verifyPassword,
 } from "../store";
 import { logAudit } from "../lib/audit";
-import { COURSE_META } from "../data/course";
 import { Avatar } from "./Avatar";
 import { EMPTY_ENROLMENT, EnrolmentForm } from "./EnrolmentForm";
 import { PasswordInput } from "./PasswordInput";
@@ -272,8 +271,7 @@ export function SignIn({ onSignIn }: { onSignIn: (p: Profile) => void }) {
     <div className="gate">
       <div className={`gate-card${enrolling ? " wide" : ""}`}>
         <div className="logo">
-          <Icon name="certificate" size={26} />
-          ITSS Learn
+          <img src="/downloads/discovery-logo.jpg" alt="Discovery" />
         </div>
         <h1>
           {authFor
@@ -293,7 +291,7 @@ export function SignIn({ onSignIn }: { onSignIn: (p: Profile) => void }) {
               : `Signing in as ${authFor.name} (${authFor.role}).`
             : enrolling
               ? "Required for first-time enrolment on the learnership. This information is saved to your profile and is visible to you, your facilitator and super users."
-              : `${COURSE_META.title} · SAQA ID ${COURSE_META.saqaId} · NQF Level ${COURSE_META.nqfLevel}. Your progress is saved to your profile on this device.`}
+              : `Microsoft and Oracle courses. Your progress is saved to your profile on this device.`}
         </p>
 
         {authFor && !resetting && (

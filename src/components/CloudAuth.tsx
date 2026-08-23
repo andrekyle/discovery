@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Icon } from "../icons";
 import { supabase } from "../lib/supabase";
-import { COURSE_META } from "../data/course";
 import { PasswordInput } from "./PasswordInput";
 
 /** Email/password gate shown before the app when cloud sync is configured. */
@@ -84,14 +83,12 @@ export function CloudAuth() {
     <div className="gate">
       <div className="gate-card">
         <div className="logo">
-          <Icon name="certificate" size={26} />
-          ITSS Learn
+          <img src="/downloads/discovery-logo.jpg" alt="Discovery" />
         </div>
         <h1>{mode === "signin" ? "Sign in to your account" : "Create your account"}</h1>
         <p className="sub">
-          {COURSE_META.title} · SAQA ID {COURSE_META.saqaId} · NQF Level {COURSE_META.nqfLevel}.
-          Your profile and progress are stored securely online — sign in from any device to
-          continue where you left off.
+          Microsoft and Oracle courses. Your profile and progress are stored securely online —
+          sign in from any device to continue where you left off.
         </p>
 
         <form onSubmit={submit}>
@@ -178,8 +175,7 @@ export function ResetPassword({ onDone }: { onDone: () => void }) {
     <div className="gate">
       <div className="gate-card">
         <div className="logo">
-          <Icon name="certificate" size={26} />
-          ITSS Learn
+          <img src="/downloads/discovery-logo.jpg" alt="Discovery" />
         </div>
         <h1>Choose a new password</h1>
         <p className="sub">Enter a new password for your account — you'll be signed in right away.</p>

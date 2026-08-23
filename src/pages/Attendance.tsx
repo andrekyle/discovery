@@ -12,7 +12,7 @@ import { Icon } from "../icons";
 import { ConfirmModal } from "../components/Modal";
 
 /**
- * Attendance Register — exact replica of the Eruditio paper form.
+ * Attendance Register — exact replica of the Discovery paper form.
  *
  * One shared register exists per session date (Fridays). Every signed-in
  * learner signs their own row during class; the register is shared across
@@ -215,7 +215,7 @@ function StaticSheet({ dateIso, data }: { dateIso: string; data: AttData }) {
   return (
     <div className="att-sheet att-sheet-static">
       <div className="att-logo">
-        <img src="/downloads/cropped-cropped-Final_Full-Logo2-768x255.png" alt="Eruditio — Empower · Develop · Transform" />
+        <img src="/downloads/discovery-logo.jpg" alt="Discovery" />
       </div>
       <div className="att-banner">ATTENDANCE REGISTER</div>
       <table className="att-head">
@@ -247,8 +247,8 @@ function StaticSheet({ dateIso, data }: { dateIso: string; data: AttData }) {
         </tbody>
       </table>
       <div className="att-main-wrap">
-        <img className="att-watermark icon" src="/downloads/Colour-ICon_1-scaled-1536x1339.png" alt="" aria-hidden="true" />
-        <img className="att-watermark full" src="/downloads/cropped-cropped-Final_Full-Logo2-768x255.png" alt="" aria-hidden="true" />
+        <img className="att-watermark icon" src="/downloads/discovery-icon.png" alt="" aria-hidden="true" />
+        <img className="att-watermark full" src="/downloads/discovery-logo-wm.png" alt="" aria-hidden="true" />
         <table className="att-main">
           <thead>
             <tr>
@@ -304,13 +304,13 @@ function StaticSheet({ dateIso, data }: { dateIso: string; data: AttData }) {
         </tbody>
       </table>
       <div className="att-company">
-        <div>Eruditio Skills Development Consultants (Pty) Ltd</div>
-        <div>Office 44/45 Villa Valencia Business Park, 244 Monument Road</div>
-        <div>Glen Marais, Kempton Park 1619</div>
+        <div>Discovery</div>
+        <div>1 Discovery Place</div>
+        <div>Sandton 2196</div>
         <div>
-          www.eruditio.co.za&ensp;<span className="att-link">info@eruditio.co.za</span>
+          <span className="att-link">www.discovery.co.za</span>
         </div>
-        <div>+27 11 973 0205</div>
+        <div>+27 11 529 2888</div>
       </div>
     </div>
   );
@@ -677,7 +677,7 @@ export function AttendancePage({
         )}
       <div className="att-sheet">
         <div className="att-logo">
-          <img src="/downloads/cropped-cropped-Final_Full-Logo2-768x255.png" alt="Eruditio — Empower · Develop · Transform" />
+          <img src="/downloads/discovery-logo.jpg" alt="Discovery" />
         </div>
 
         <div className="att-banner">ATTENDANCE REGISTER</div>
@@ -720,13 +720,13 @@ export function AttendancePage({
         <div className="att-main-wrap">
           <img
             className="att-watermark icon"
-            src="/downloads/Colour-ICon_1-scaled-1536x1339.png"
+            src="/downloads/discovery-icon.png"
             alt=""
             aria-hidden="true"
           />
           <img
             className="att-watermark full"
-            src="/downloads/cropped-cropped-Final_Full-Logo2-768x255.png"
+            src="/downloads/discovery-logo-wm.png"
             alt=""
             aria-hidden="true"
           />
@@ -799,13 +799,13 @@ export function AttendancePage({
         </table>
 
         <div className="att-company">
-          <div>Eruditio Skills Development Consultants (Pty) Ltd</div>
-          <div>Office 44/45 Villa Valencia Business Park, 244 Monument Road</div>
-          <div>Glen Marais, Kempton Park 1619</div>
+          <div>Discovery</div>
+          <div>1 Discovery Place</div>
+          <div>Sandton 2196</div>
           <div>
-            www.eruditio.co.za&ensp;<span className="att-link">info@eruditio.co.za</span>
+            <span className="att-link">www.discovery.co.za</span>
           </div>
-          <div>+27 11 973 0205</div>
+          <div>+27 11 529 2888</div>
         </div>
       </div>
 

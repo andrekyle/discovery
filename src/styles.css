@@ -1073,24 +1073,80 @@ td .with-ico .ico {
   color: var(--ink-2);
 }
 
-/* ============ Sign in ============ */
+/* ============ Sign in (Discovery branding) ============ */
 
 .gate {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--surface-2);
+  background:
+    radial-gradient(90% 70% at 85% 100%, rgba(31, 190, 170, 0.55) 0%, rgba(31, 190, 170, 0) 60%),
+    radial-gradient(70% 60% at 0% 100%, rgba(53, 189, 237, 0.45) 0%, rgba(53, 189, 237, 0) 55%),
+    linear-gradient(150deg, #574edf 0%, #434bde 55%, #3181c6 100%);
   padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* nested chevrons echoing the Discovery emblem */
+.gate::before,
+.gate::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.gate::before {
+  width: 380px;
+  height: 380px;
+  border-width: 46px;
+  border-color: rgba(255, 255, 255, 0.1);
+  right: -110px;
+  bottom: 4%;
+}
+.gate::after {
+  width: 210px;
+  height: 210px;
+  border-width: 34px;
+  border-color: rgba(255, 255, 255, 0.16);
+  right: -25px;
+  bottom: 16%;
 }
 
 .gate-card {
   width: 440px;
   max-width: 100%;
+  /* fixed light palette + Discovery accents so the card looks the same in
+     light and dark mode against the brand gradient */
+  --surface: #ffffff;
+  --surface-2: #f2f4fb;
+  --surface-3: #f7f8fd;
+  --ink: rgba(9, 14, 40, 0.88);
+  --ink-2: #363c58;
+  --ink-3: #5d647f;
+  --border: #dfe3f0;
+  --border-2: #ccd3e8;
+  --azure: #434bde;
+  --azure-dark: #3a41c8;
+  --azure-darker: #3038b4;
+  --azure-light: #edeffc;
+  --azure-lighter: #f4f5fe;
+  --red: #d13438;
+  --red-bg: #fdf3f4;
+  --accent: #434bde;
+  color-scheme: light;
+  color: var(--ink);
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  border: none;
+  border-radius: 16px;
   padding: 40px 44px;
+  box-shadow: 0 30px 70px rgba(9, 14, 60, 0.4);
+  position: relative;
+  z-index: 1;
 }
 
 .gate-card.wide {
@@ -1307,11 +1363,65 @@ td .with-ico .ico {
 .gate-card .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: var(--azure);
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.gate-card .logo img {
+  height: 52px;
+  width: auto;
+  display: block;
+}
+
+/* Discovery gradient call-to-action */
+.gate-card .btn.block:not(.ghost) {
+  background: linear-gradient(90deg, #4250de 0%, #36b6ec 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  font-size: 14px;
   font-weight: 600;
-  font-size: 17px;
-  margin-bottom: 22px;
+  padding: 12px 16px;
+}
+
+.gate-card .btn.block:not(.ghost):hover:not(:disabled) {
+  background: linear-gradient(90deg, #3a47c9 0%, #2ea5d9 100%);
+  color: #ffffff;
+}
+
+.gate-card .btn.ghost.block {
+  color: var(--azure);
+  font-weight: 400;
+  font-size: 13.5px;
+  border-radius: 999px;
+  padding: 11px 16px;
+}
+
+.gate-card .btn.ghost.block:hover {
+  background: var(--azure-light);
+  color: var(--azure-darker);
+}
+
+/* first secondary action after the divider: soft filled pill */
+.gate-card .divider + .btn.ghost.block {
+  background: var(--azure-light);
+}
+
+.gate-card .divider + .btn.ghost.block:hover {
+  background: #e0e4fb;
+}
+
+/* Native select + its dropdown list stay light inside the white card, even
+   when the browser/OS is in dark mode */
+.gate-card .field select {
+  color-scheme: light;
+  background: #ffffff;
+  color: #1a2033;
+}
+
+.gate-card .field select option {
+  background: #ffffff;
+  color: #1a2033;
 }
 
 .gate-card h1 {
@@ -1430,6 +1540,7 @@ td .with-ico .ico {
   font-size: 14px;
   outline-color: var(--azure);
   background: var(--surface);
+  color: var(--ink);
 }
 
 .field textarea {
@@ -2371,7 +2482,7 @@ textarea:focus {
 .quiz-option.right-pick .quiz-mark { color: var(--green); }
 .quiz-option.wrong-pick .quiz-mark { color: var(--red); }
 
-/* ============ Student Registration Form (Eruditio paper look) ============ */
+/* ============ Student Registration Form (Discovery paper look) ============ */
 .srf-wrap {
   padding: 18px;
   background: var(--surface);
@@ -2387,7 +2498,7 @@ textarea:focus {
    light and dark mode and prints without translation. */
 .srf-page {
   --srf-line: #000;
-  --srf-strip: #ee7a15;
+  --srf-strip: #02458c;
   background: #ffffff;
   color: #000;
   padding: 18px 22px 22px;
@@ -2403,7 +2514,7 @@ textarea:focus {
   justify-content: center;
   padding: 4px 0 8px;
 }
-.srf-eruditio-logo {
+.srf-discovery-logo {
   max-height: 80px;
   width: auto;
   height: auto;
@@ -2507,10 +2618,10 @@ textarea:focus {
   transition: color 0.08s, background 0.08s;
   position: relative;
 }
-.srf-tick-cell:hover { background: #fffbe6; }
+.srf-tick-cell:hover { background: #eaf1fa; }
 .srf-tick-cell.on { background: transparent; }
 .srf-tick-cell.on .srf-cell-label {
-  color: #ee7a15;
+  color: #02458c;
   font-weight: 700;
 }
 .srf-cell-label {
@@ -2523,8 +2634,8 @@ textarea:focus {
 .srf-nationality td { min-width: 0; }
 .srf-nationality .srf-cell-label { font-size: 10px; }
 
-/* Orange contact strip */
-.srf-orange-strip {
+/* Discovery contact strip */
+.srf-contact-strip {
   background: var(--srf-strip);
   color: #ffffff;
   padding: 8px 20px;
@@ -2536,13 +2647,13 @@ textarea:focus {
   margin: 12px 0 14px;
   gap: 10px;
 }
-.srf-orange-strip .srf-pin,
-.srf-orange-strip .srf-phone {
+.srf-contact-strip .srf-pin,
+.srf-contact-strip .srf-phone {
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
-.srf-orange-strip svg { flex: 0 0 auto; }
+.srf-contact-strip svg { flex: 0 0 auto; }
 
 /* Declaration */
 .srf-declaration {
@@ -2557,14 +2668,7 @@ textarea:focus {
 /* Admin section */
 .srf-admin .srf-tick-cell { min-width: 120px; }
 
-/* Accreditation lines + footer logos */
-.srf-accred-lines {
-  font-size: 9.5px;
-  text-align: center;
-  margin-top: 14px;
-  color: #555;
-  line-height: 1.35;
-}
+/* Footer partner logos */
 .srf-footer-logos {
   display: flex;
   justify-content: space-around;
@@ -2575,6 +2679,7 @@ textarea:focus {
 }
 .srf-footer-logo {
   max-height: 56px;
+  max-width: 42%;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -2662,7 +2767,7 @@ textarea:focus {
     print-color-adjust: exact;
   }
   .srf-tick-cell.on { background: transparent !important; }
-  .srf-tick-cell.on .srf-cell-label { color: #ee7a15 !important; font-weight: 700 !important; }
+  .srf-tick-cell.on .srf-cell-label { color: #02458c !important; font-weight: 700 !important; }
   /* Narrow tick cells: slightly smaller label + tighter padding in print so
      words like "Divorced" keep clear air between text and cell borders. */
   .srf-tick-cell { padding: 3px 4px !important; }
@@ -2671,7 +2776,7 @@ textarea:focus {
   .srf-textarea { resize: none !important; }
   .srf-textarea::-webkit-resizer { display: none !important; }
   .srf-input::-webkit-calendar-picker-indicator { display: none !important; }
-  .srf-orange-strip {
+  .srf-contact-strip {
     background: var(--srf-strip) !important;
     color: #fff !important;
   }
@@ -6901,7 +7006,7 @@ table.data tr.done-row .text-link {
   margin-top: 18px;
 }
 
-/* ---------- Attendance Register (Eruditio form replica) ---------- */
+/* ---------- Attendance Register (Discovery form replica) ---------- */
 
 .att-controls {
   display: flex;
@@ -6956,7 +7061,7 @@ table.data tr.done-row .text-link {
 }
 
 .att-banner {
-  background: #f08120;
+  background: #181925;
   color: #fff;
   text-align: center;
   font-weight: 700;
@@ -7100,7 +7205,7 @@ table.data tr.done-row .text-link {
 }
 
 .att-cell:focus {
-  background: #fdf3e7;
+  background: #eaf1fa;
 }
 
 .att-sig,

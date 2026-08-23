@@ -4,9 +4,9 @@ import type { Profile, RegistrationForm, Route } from "../types";
 import { updateProfile } from "../store";
 
 /**
- * Eruditio Student Registration Form — laid out to match the paper form
+ * Discovery Student Registration Form — laid out to match the paper form
  * exactly (see reference PDF in the repo). White background, blue title,
- * black hairline grid, orange contact strip, matching country nationality
+ * black hairline grid, Discovery contact strip, matching country nationality
  * matrix, home-language grid, disability grid, and page-2 employment /
  * declaration / admission decision blocks.
  */
@@ -233,7 +233,7 @@ function StudentRegistrationForm({
 
       {/* ============================== PAGE 1 ============================== */}
       <div className="srf-page">
-        <EruditioMasthead />
+        <DiscoveryMasthead />
         <h2 className="srf-title">Student Registration Form</h2>
 
         <div className="srf-section-title">Student Information: <em>(Please print)</em></div>
@@ -470,19 +470,19 @@ function StudentRegistrationForm({
           </tbody>
         </table>
 
-        {/* Orange contact strip */}
-        <div className="srf-orange-strip">
+        {/* Discovery contact strip */}
+        <div className="srf-contact-strip">
           <span className="srf-pin">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
               <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5z"/>
             </svg>
-            45 Villa Valencia, 2 Anemoon Road, Glen Marais, Kempton Park, 1619
+            1 Discovery Place, Sandton, 2196
           </span>
           <span className="srf-phone">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
               <path d="M6.6 10.8c1.4 2.8 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.9.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10 21 3 14 3 5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.4.2 2.7.6 3.9.1.4 0 .8-.2 1.1L6.6 10.8z"/>
             </svg>
-            011 973 0205
+            011 529 2888
           </span>
         </div>
 
@@ -593,12 +593,12 @@ function StudentRegistrationForm({
             <strong> (STUDENT NAME)</strong>,{" "}
             <SmallInput value={form.studentNumber} onChange={(v) => set("studentNumber", v)} />
             <strong> (STUDENT ID NUMBER)</strong>, am fully aware that the programme I have enrolled in
-            with Eruditio Skills Development Consultants (Pty) Ltd is registered with the Department of
-            Education and that Eruditio Skills Development Consultants (Pty) Ltd is accredited to offer
+            with Discovery is registered with the Department of
+            Education and that Discovery is accredited to offer
             this qualification.
           </p>
           <p>
-            I hereby confirm that I am aware of Eruditio Skills Development Consultant&apos;s cancelation
+            I hereby confirm that I am aware of Discovery&apos;s cancelation
             and refund policy. I hereby declare that I will adhere to the student code of conduct provided
             to me and signed by me.
           </p>
@@ -688,28 +688,16 @@ function StudentRegistrationForm({
           </tbody>
         </table>
 
-        {/* Footer accreditation lines + logos */}
-        <div className="srf-accred-lines">
-          <div>Company Reg no: 2012/017833/07</div>
-          <div>QCTO Accreditation: 07-QCTO/SDP030222-439</div>
-          <div>W&amp;R SETA Accreditation: 100</div>
-          <div>Services SETA: 12709</div>
-        </div>
-
+        {/* Footer partner logos */}
         <div className="srf-footer-logos">
           <img
-            src="/logos/Quality-Council-for-Trades-and-Occupations.png"
-            alt="QCTO — Quality Council for Trades and Occupations"
+            src="/downloads/960px-Oracle_logo.svg.webp"
+            alt="Oracle"
             className="srf-footer-logo"
           />
           <img
-            src="/logos/Services-SETAFavicon.png"
-            alt="Services SETA"
-            className="srf-footer-logo"
-          />
-          <img
-            src="/logos/w&Rseta.png"
-            alt="W&amp;RSETA"
+            src="/downloads/960px-Microsoft_logo_(2012).svg.webp"
+            alt="Microsoft"
             className="srf-footer-logo"
           />
         </div>
@@ -727,10 +715,10 @@ function chunks<T>(arr: T[], n: number): T[][] {
   return out;
 }
 
-function EruditioMasthead() {
+function DiscoveryMasthead() {
   return (
     <div className="srf-masthead">
-      <img src="/logos/eruditio.png" alt="Eruditio" className="srf-eruditio-logo" />
+      <img src="/downloads/discovery-logo.jpg" alt="Discovery" className="srf-discovery-logo" />
     </div>
   );
 }
