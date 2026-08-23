@@ -4603,10 +4603,19 @@ a.plan-ppt:hover {
   text-decoration: underline;
 }
 
-.lesson-embed iframe {
-  display: block;
-  width: 100%;
+.lesson-embed-frame {
+  position: relative;
+  overflow: hidden;
+  background: #0b0e14;
+}
+
+.lesson-embed-frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   border: 0;
+  display: block;
+  transform-origin: 0 0;
   background: #0b0e14;
 }
 

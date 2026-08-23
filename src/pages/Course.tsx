@@ -1723,6 +1723,48 @@ export function ModulePage({
 
 const MAX_SLIDE_MB = 10;
 
+/** Live web page embedded in a lesson. The page renders at a fixed desktop
+ *  width and is scaled to fit the lesson column, so no iframe scrollbars. */
+function LessonEmbed({ embed }: { embed: { url: string; title: string; height?: number; note?: string } }) {
+  const DESIGN_W = 1280;
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const update = () => setScale(Math.min(1.2, el.clientWidth / DESIGN_W) || 1);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  const h = embed.height ?? 560;
+  return (
+    <div className="lesson-embed">
+      <div className="lesson-embed-bar">
+        <span className="lesson-embed-title">
+          <Icon name="globe" size={15} />
+          {embed.title}
+        </span>
+        <a className="lesson-embed-open" href={embed.url} target="_blank" rel="noopener noreferrer">
+          Open full screen ↗
+        </a>
+      </div>
+      <div className="lesson-embed-frame" ref={wrapRef} style={{ height: h }}>
+        <iframe
+          src={embed.url}
+          title={embed.title}
+          scrolling="no"
+          style={{ width: DESIGN_W, height: h / scale, transform: `scale(${scale})` }}
+          allow="fullscreen"
+          loading="lazy"
+        />
+      </div>
+      {embed.note && <p className="lesson-embed-note">{embed.note}</p>}
+    </div>
+  );
+}
+
 function fmtSize(bytes: number) {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
@@ -3464,27 +3506,7 @@ export function UnitPage({
                     )}
                   </div>
                 ))}
-                {sec.embed && (
-                  <div className="lesson-embed">
-                    <div className="lesson-embed-bar">
-                      <span className="lesson-embed-title">
-                        <Icon name="globe" size={15} />
-                        {sec.embed.title}
-                      </span>
-                      <a className="lesson-embed-open" href={sec.embed.url} target="_blank" rel="noopener noreferrer">
-                        Open full screen ↗
-                      </a>
-                    </div>
-                    <iframe
-                      src={sec.embed.url}
-                      title={sec.embed.title}
-                      style={{ height: sec.embed.height ?? 560 }}
-                      allow="fullscreen"
-                      loading="lazy"
-                    />
-                    {sec.embed.note && <p className="lesson-embed-note">{sec.embed.note}</p>}
-                  </div>
-                )}
+                {sec.embed && <LessonEmbed embed={sec.embed} />}
                 {sec.figures && (
                   <div className="figure-grid">
                     {orderedFigures.filter((f) => f.id !== heroFig?.id).map((f) => {
