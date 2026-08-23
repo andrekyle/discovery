@@ -2574,40 +2574,47 @@ export function UnitPage({
                 </summary>
                 <div className="saqa-body">
                   <ul className="duty-list">
-                    {content.studyGuide.skillsAtAGlance.map((s) => (
+                    {content.studyGuide.skillsAtAGlance.map((s, si) => (
                       <li key={s}>
                         <span className="ico">
                           <Icon name="chevronRight" size={14} />
                         </span>
-                        <span>{s}</span>
+                        <span>
+                          <strong>{si + 1}.</strong> {s}
+                        </span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </details>
 
-              {content.studyGuide.areas.map((area) => (
+              {content.studyGuide.areas.map((area, ai) => (
                 <details className="saqa-details" key={area.heading}>
                   <summary>
                     <Icon name="checklist" size={17} />
-                    {area.heading}
+                    {ai + 1}. {area.heading}
                     <span className="chev">
                       <Icon name="chevronDown" size={15} />
                     </span>
                   </summary>
                   <div className="saqa-body">
-                    {area.groups.map((g) => (
+                    {area.groups.map((g, gi) => (
                       <div key={g.heading}>
                         <p className="lesson-p" style={{ fontWeight: 600 }}>
-                          {g.heading}
+                          {ai + 1}.{gi + 1} {g.heading}
                         </p>
                         <ul className="duty-list">
-                          {g.items.map((it) => (
+                          {g.items.map((it, ii) => (
                             <li key={it}>
                               <span className="ico">
                                 <Icon name="chevronRight" size={14} />
                               </span>
-                              <span>{it}</span>
+                              <span>
+                                <strong>
+                                  {ai + 1}.{gi + 1}.{ii + 1}
+                                </strong>{" "}
+                                {it}
+                              </span>
                             </li>
                           ))}
                         </ul>
