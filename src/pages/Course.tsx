@@ -3460,6 +3460,27 @@ export function UnitPage({
                     )}
                   </div>
                 ))}
+                {sec.embed && (
+                  <div className="lesson-embed">
+                    <div className="lesson-embed-bar">
+                      <span className="lesson-embed-title">
+                        <Icon name="globe" size={15} />
+                        {sec.embed.title}
+                      </span>
+                      <a className="lesson-embed-open" href={sec.embed.url} target="_blank" rel="noopener noreferrer">
+                        Open full screen ↗
+                      </a>
+                    </div>
+                    <iframe
+                      src={sec.embed.url}
+                      title={sec.embed.title}
+                      style={{ height: sec.embed.height ?? 560 }}
+                      allow="fullscreen"
+                      loading="lazy"
+                    />
+                    {sec.embed.note && <p className="lesson-embed-note">{sec.embed.note}</p>}
+                  </div>
+                )}
                 {sec.figures && (
                   <div className="figure-grid">
                     {orderedFigures.filter((f) => f.id !== heroFig?.id).map((f) => {

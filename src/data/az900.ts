@@ -25,6 +25,12 @@ export const AZ900_CONTENT: UnitContent = {
       figures: [
         { id: "az900-exam-areas", caption: "The three AZ-900 skill areas and their exam weightings" },
       ],
+      embed: {
+        url: "https://datacenters.microsoft.com/globe/explore/",
+        title: "Live: Microsoft's global datacenter infrastructure — explore the globe",
+        height: 620,
+        note: "Drag to spin the globe, zoom into regions, and use 'Take a tour' to fly through Microsoft's datacenters, subsea cables and edge sites. This is the real infrastructure you are learning about in this course.",
+      },
       slideQuiz: [
         {
           q: "Which three skill areas does AZ-900 measure?",

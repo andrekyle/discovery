@@ -4564,6 +4564,60 @@ a.plan-ppt:hover {
   background: transparent;
 }
 
+/* live embedded web page inside a lesson section */
+.lesson-embed {
+  margin: 16px 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.lesson-embed-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 14px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.lesson-embed-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.lesson-embed-open {
+  font-size: 12.5px;
+  color: var(--azure);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.lesson-embed-open:hover {
+  text-decoration: underline;
+}
+
+.lesson-embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: #0b0e14;
+}
+
+.lesson-embed-note {
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 12.5px;
+  color: var(--ink-3);
+  border-top: 1px solid var(--border);
+}
+
 .fig-drop {
   display: flex;
   flex-direction: column;

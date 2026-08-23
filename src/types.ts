@@ -320,6 +320,8 @@ export interface LessonSection {
   examples?: { title: string; lines: string[] }[];
   /** image figure slots rendered after the content — staff upload the pictures, learners see placeholders until then */
   figures?: LessonFigure[];
+  /** live embedded web page (iframe) rendered with the section content */
+  embed?: { url: string; title: string; height?: number; note?: string };
   /** facilitator/super-user only model answers shown at the bottom of the section */
   modelAnswer?: ModelAnswerBlock[];
   /** render as a plain always-visible section instead of a collapsible accordion */
