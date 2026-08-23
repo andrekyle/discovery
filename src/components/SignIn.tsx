@@ -445,8 +445,6 @@ export function SignIn({ onSignIn }: { onSignIn: (p: Profile) => void }) {
                 options={[
                   { value: "Learner", label: "Learner" },
                   { value: "Facilitator", label: "Facilitator" },
-                  { value: "Assessor", label: "Assessor" },
-                  { value: "Moderator", label: "Moderator" },
                 ]}
               />
             </div>
