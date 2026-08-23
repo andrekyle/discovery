@@ -22,6 +22,9 @@ export const AZ900_CONTENT: UnitContent = {
         "Exam at a glance: ±40–60 multiple-choice/multiple-select questions · 45 minutes · passing score 700 out of 1000 · delivered at Pearson VUE test centres or online proctored.",
         "Official certification page, study guide and free practice assessment: https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/",
       ],
+      figures: [
+        { id: "az900-exam-areas", caption: "The three AZ-900 skill areas and their exam weightings" },
+      ],
       slideQuiz: [
         {
           q: "Which three skill areas does AZ-900 measure?",
@@ -86,6 +89,7 @@ export const AZ900_CONTENT: UnitContent = {
         "Higher-level services — databases, AI, analytics, IoT: ready-made building blocks you rent instead of build",
       ],
       figures: [
+        { id: "az900-cloud-services", caption: "What the cloud delivers over the internet — compute, storage, networking and higher-level services" },
         { id: "datacentre-aisle", caption: "Inside a cloud datacenter — racks of servers behind every 'virtual' resource" },
         { id: "hyperscale-aerial", caption: "A hyperscale datacenter campus — the physical scale behind the cloud" },
       ],
@@ -160,6 +164,9 @@ export const AZ900_CONTENT: UnitContent = {
           ["Physical hosts, network & datacenter", "You", "Provider", "Provider", "Provider"],
         ],
       },
+      figures: [
+        { id: "az900-shared-responsibility", caption: "Who manages what — on-premises vs IaaS vs PaaS vs SaaS" },
+      ],
       slideQuiz: [
         {
           q: "In EVERY cloud service type, which of these always remains YOUR responsibility?",
@@ -228,6 +235,9 @@ export const AZ900_CONTENT: UnitContent = {
           ["Multi-cloud", "One organisation, several providers", "Avoid lock-in / use best-of-breed · managed consistently with Azure Arc"],
         ],
       },
+      figures: [
+        { id: "az900-cloud-models", caption: "Public, private and hybrid — hybrid bridges the other two" },
+      ],
       slideQuiz: [
         {
           q: "A hospital keeps patient records on servers in its own building but runs its public website in Azure. Which cloud model is this?",
@@ -287,6 +297,10 @@ export const AZ900_CONTENT: UnitContent = {
           ["Spot", "None — capacity can be reclaimed", "Interruptible batch jobs and test runs"],
         ],
       },
+      figures: [
+        { id: "az900-pricing-models", caption: "Four pricing models — commitment buys discount" },
+        { id: "az900-serverless", caption: "Serverless: event in, code runs, pay per execution" },
+      ],
       slideQuiz: [
         {
           q: "Buying a rack of servers for your own server room is an example of…",
@@ -348,6 +362,9 @@ export const AZ900_CONTENT: UnitContent = {
           ["99.999%", "6.05 seconds", "25.9 seconds", "5.26 minutes"],
         ],
       },
+      figures: [
+        { id: "az900-scaling", caption: "Vertical scaling changes the machine; horizontal scaling changes the number of machines" },
+      ],
       slideQuiz: [
         {
           q: "Adding two more identical web-server VMs behind a load balancer is an example of…",
@@ -400,6 +417,9 @@ export const AZ900_CONTENT: UnitContent = {
         "Predictability comes in two forms. Performance predictability: autoscaling, load balancing and high-availability designs keep the user experience consistent as demand changes. Cost predictability: real-time tracking, forecasting and calculators let you plan spend with confidence.",
         "Security and governance: cloud templates, policies and standardised deployments keep every resource compliant with corporate standards, and the provider handles physical security and threat protection at a scale few organisations could match on their own.",
         "Manageability of the cloud: automatically scale, deploy from templates, monitor health and replace failing resources automatically, and receive alerts. Manageability in the cloud: manage everything through the web portal, command line, APIs or PowerShell — from anywhere.",
+      ],
+      figures: [
+        { id: "az900-benefits", caption: "The eight cloud benefits the exam expects you to define" },
       ],
       slideQuiz: [
         {
@@ -472,6 +492,9 @@ export const AZ900_CONTENT: UnitContent = {
           ["SaaS", "Your data and users", "Everything else", "Microsoft 365, Dynamics 365"],
         ],
       },
+      figures: [
+        { id: "az900-service-types", caption: "The management stack — where 'You' ends and 'Provider' begins in each service type" },
+      ],
       slideQuiz: [
         {
           q: "Your team wants to deploy a web app without managing any servers or OS patching, but still deploy its own code. Choose the service type.",
@@ -518,6 +541,10 @@ export const AZ900_CONTENT: UnitContent = {
         "An availability zone is a physically separate location within a region — with its own power, cooling and networking. Regions that support zones have at least three, so even a datacenter-level disaster leaves your zone-redundant services running. Zones are connected by high-speed private fibre and are ideal for mission-critical applications.",
         "Region pairs: most regions are paired with another region in the same geography at least 300 miles (≈480 km) away — for example South Africa North pairs with South Africa West (Cape Town). If a massive event affects one region, services can fail over to the pair, and platform updates roll out to one region of the pair at a time.",
         "Sovereign regions are isolated instances of Azure for compliance-sensitive customers — for example the US Government regions, which run on separate infrastructure with additional compliance certifications.",
+      ],
+      figures: [
+        { id: "az900-regions-zones", caption: "A region with three availability zones, and its paired region 300+ miles away" },
+        { id: "undersea-cable-map", caption: "The global network — regions connect over Microsoft's backbone and the world's undersea cables" },
       ],
       slideQuiz: [
         {
@@ -588,6 +615,9 @@ export const AZ900_CONTENT: UnitContent = {
           "Deleting 'rg-website' would remove all three resources at once; the region policy is inherited from 'Corp-IT' automatically.",
         ],
       },
+      figures: [
+        { id: "az900-hierarchy", caption: "The four levels — policy and access flow downwards" },
+      ],
       slideQuiz: [
         {
           q: "Put the hierarchy in order, largest to smallest:",
@@ -662,6 +692,11 @@ export const AZ900_CONTENT: UnitContent = {
           ["Windows desktops from the cloud", "Azure Virtual Desktop", "Central, secure desktop delivery"],
         ],
       },
+      figures: [
+        { id: "az900-compute-services", caption: "Four compute options — from full control to fully serverless" },
+        { id: "az900-vm-resources", caption: "A VM never travels alone — size, disks, NIC, IP and NSG come with it" },
+        { id: "hypervisor-diagram", caption: "Virtualisation — the hypervisor shares one physical host among many isolated VMs" },
+      ],
       slideQuiz: [
         {
           q: "Which service runs your code ONLY when an event fires, billing you per execution?",
@@ -721,6 +756,10 @@ export const AZ900_CONTENT: UnitContent = {
         "Azure VPN Gateway connects your on-premises network to Azure through an encrypted tunnel over the public internet: site-to-site for whole offices, point-to-site for individual remote workers.",
         "Azure ExpressRoute is a private, dedicated connection between your premises and Azure that never touches the public internet — higher bandwidth, consistent latency and greater reliability for serious hybrid workloads.",
         "Azure DNS hosts your DNS domains on Azure's global anycast network, answering name lookups with the same credentials, tools and billing as your other Azure services.",
+      ],
+      figures: [
+        { id: "az900-vnet", caption: "One picture of Azure networking — VNet with subnets, endpoints, peering, VPN and ExpressRoute" },
+        { id: "router-firewall", caption: "On the on-premises side: the router/firewall that terminates your VPN tunnel" },
       ],
       slideQuiz: [
         {
@@ -789,6 +828,11 @@ export const AZ900_CONTENT: UnitContent = {
           ["GZRS", "3 zonal + 3 in paired region", "Zone AND regional disasters", "Highest durability"],
         ],
       },
+      figures: [
+        { id: "az900-storage-tiers", caption: "Hot → Cool → Cold → Archive: cheaper to keep, slower and dearer to touch" },
+        { id: "az900-redundancy", caption: "Redundancy options — how many copies and how far apart" },
+        { id: "san-array", caption: "Behind the API: enterprise storage arrays hold the physical copies" },
+      ],
       slideQuiz: [
         {
           q: "Ten years of compliance records must be kept as cheaply as possible and are almost never read. Choose the blob tier.",
@@ -841,6 +885,10 @@ export const AZ900_CONTENT: UnitContent = {
         "Defence-in-depth layers protections so no single failure exposes your data: physical security → identity & access → perimeter (DDoS protection) → network (segmentation, NSGs) → compute (hardened, patched hosts) → application (secure code, secrets management) → data (encryption).",
         "Microsoft Defender for Cloud continuously assesses your posture across Azure, on-premises and other clouds — scoring your security, recommending hardening steps, and detecting and responding to threats.",
       ],
+      figures: [
+        { id: "az900-identity", caption: "Microsoft Entra ID and the controls built on it" },
+        { id: "az900-defence-in-depth", caption: "Defence in depth — every ring must fail before the data is exposed" },
+      ],
       slideQuiz: [
         {
           q: "Which service is Azure's cloud identity and access management directory?",
@@ -892,6 +940,9 @@ export const AZ900_CONTENT: UnitContent = {
         "The TCO (Total Cost of Ownership) calculator compares the full cost of running workloads on-premises (hardware, electricity, cooling, IT labour, licences) against running them in Azure — the tool for the 'is migrating worth it?' conversation.",
         "Microsoft Cost Management shows what you are actually spending: analyse usage, set budgets, receive spending alerts (budget alerts, credit alerts, department quota alerts) and forecast future spend.",
         "Tags are name/value pairs attached to resources — for example CostCentre: Marketing or Env: Production. They power cost reporting by team or project, and also help with resource organisation, operations and security classification. Tags can be enforced and auto-applied with Azure Policy.",
+      ],
+      figures: [
+        { id: "az900-cost-factors", caption: "Six factors that drive the bill — plus the calculators and Cost Management" },
       ],
       slideQuiz: [
         {
@@ -946,6 +997,9 @@ export const AZ900_CONTENT: UnitContent = {
         "Microsoft Purview is a unified data-governance service that maps, catalogues and classifies data across Azure, on-premises and other clouds — answering 'what data do we hold, where is it, and is it sensitive?'.",
         "The Service Trust Portal (servicetrust.microsoft.com) publishes Microsoft's audit reports, compliance certifications and security documentation — the evidence your auditors ask for when you build on Azure.",
       ],
+      figures: [
+        { id: "az900-governance", caption: "The governance toolbox — Policy, locks, Purview, Service Trust Portal" },
+      ],
       slideQuiz: [
         {
           q: "A junior admin with Contributor rights keeps nearly deleting the production database. The safeguard is…",
@@ -989,6 +1043,9 @@ export const AZ900_CONTENT: UnitContent = {
         "The Azure CLI (az commands) and Azure PowerShell (cmdlets like New-AzVM) are the scriptable interfaces — Windows, Linux and macOS — for repeatable, automatable administration. If you can click it, you can script it.",
         "Azure Arc extends Azure's management plane to machines and services running OUTSIDE Azure — on-premises servers, other clouds, edge sites — so one set of tools, policies and security covers your whole estate.",
         "Infrastructure as Code (IaC) describes your environment in files instead of clicks. ARM templates (JSON) declare what to deploy; Azure Resource Manager (ARM) — the deployment and management engine every tool talks to — makes it so, repeatably and verifiably. IaC gives identical dev/test/prod environments, code review for infrastructure, and disaster recovery by redeployment.",
+      ],
+      figures: [
+        { id: "az900-management-tools", caption: "Every tool — portal, Cloud Shell, CLI/PowerShell, templates — talks to Azure Resource Manager" },
       ],
       slideQuiz: [
         {
@@ -1043,6 +1100,9 @@ export const AZ900_CONTENT: UnitContent = {
         "Azure Monitor is the platform-wide telemetry pipeline: it collects metrics and logs from every layer — applications, OS, resources, subscription, tenant — stores them centrally, and turns them into insight and action.",
         "Azure Log Analytics is where you write queries against that collected log data — from simple record searches to complex analysis across sources. Azure Monitor Alerts watch the telemetry and notify you (or trigger automated runbooks) when thresholds are crossed. Application Insights instruments your web applications — request rates, response times, failures, dependency performance — both in Azure and on-premises.",
       ],
+      figures: [
+        { id: "az900-monitoring", caption: "Advisor recommends · Service Health warns · Monitor measures (Log Analytics, alerts, App Insights)" },
+      ],
       slideQuiz: [
         {
           q: "Which free service recommends improvements across reliability, security, performance, cost and operational excellence?",
@@ -1090,6 +1150,9 @@ export const AZ900_CONTENT: UnitContent = {
         "Free practice assessment and exam registration: https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/ — choose 'Take the practice assessment', and when you are ready, 'Schedule exam' books your seat with Pearson VUE (test centre or online proctored from home with a webcam).",
         "Exam-day tips: 45 minutes is generous for ±40–60 questions — read each question fully, watch for words like 'ONLY', 'ALWAYS' and 'MOST cost-effective', answer every question (there is no negative marking), and flag doubtful ones for review. Results are shown immediately when you finish.",
         "After AZ-900, natural next steps are AI-900 (Azure AI Fundamentals — Module 9 of this course), then role-based certifications such as AZ-104 Azure Administrator.",
+      ],
+      figures: [
+        { id: "az900-exam-path", caption: "The path from this course to certified" },
       ],
       slideQuiz: [
         {
