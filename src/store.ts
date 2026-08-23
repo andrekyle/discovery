@@ -1560,10 +1560,29 @@ export interface LessonFigureImage {
 
 const lessonFigsKey = (us: string) => `itss.lessonfigs.${us}`;
 
-/** signed-URL cache so figure images resolve once per path per session */
-const figUrlCache = new Map<string, { url: string; exp: number }>();
+/** signed-URL cache so figure images resolve once per path — persisted across
+ *  page loads so an uploaded figure shows instantly instead of flashing the
+ *  built-in default while the URL is re-created. */
+const FIG_URL_STORE = "itss.figurls";
+const figUrlCache = new Map<string, { url: string; exp: number }>(
+  Object.entries(read<Record<string, { url: string; exp: number }>>(FIG_URL_STORE, {}))
+);
 const FIG_URL_TTL_S = 7 * 24 * 3600; // signed URL lifetime
 const FIG_URL_FRESH_MS = 6 * 24 * 3600 * 1000; // renew a day before expiry
+
+function persistFigUrlCache() {
+  try {
+    write(FIG_URL_STORE, Object.fromEntries(figUrlCache));
+  } catch {
+    /* quota exceeded — cache stays in-memory only */
+  }
+}
+
+/** Synchronously resolve a figure path from the persisted cache (no network). */
+function cachedFigUrl(path: string): string | undefined {
+  const hit = figUrlCache.get(path);
+  return hit && hit.exp > Date.now() ? hit.url : undefined;
+}
 
 async function signedFigUrl(path: string): Promise<string | null> {
   const hit = figUrlCache.get(path);
@@ -1572,6 +1591,7 @@ async function signedFigUrl(path: string): Promise<string | null> {
   const { data, error } = await supabase.storage.from("files").createSignedUrl(path, FIG_URL_TTL_S);
   if (error || !data) return null;
   figUrlCache.set(path, { url: data.signedUrl, exp: Date.now() + FIG_URL_FRESH_MS });
+  persistFigUrlCache();
   return data.signedUrl;
 }
 
@@ -1592,11 +1612,26 @@ export function useLessonFigures(us: string) {
   const [figures, setFigures] = useState<Record<string, LessonFigureImage>>(() =>
     read<Record<string, LessonFigureImage>>(lessonFigsKey(us), {})
   );
-  /** figure id -> resolved signed URL for path-based entries */
-  const [figUrls, setFigUrls] = useState<Record<string, string>>({});
+  /** figure id -> resolved signed URL for path-based entries. Seeded from the
+   *  persisted URL cache so cloud figures render on the very first paint. */
+  const seedFigUrls = (figs: Record<string, LessonFigureImage>): Record<string, string> => {
+    const init: Record<string, string> = {};
+    for (const [id, f] of Object.entries(figs)) {
+      if (!f.path) continue;
+      const url = cachedFigUrl(f.path);
+      if (url) init[id] = url;
+    }
+    return init;
+  };
+  const [figUrls, setFigUrls] = useState<Record<string, string>>(() =>
+    seedFigUrls(read<Record<string, LessonFigureImage>>(lessonFigsKey(us), {}))
+  );
 
   useEffect(() => {
-    setFigures(read<Record<string, LessonFigureImage>>(lessonFigsKey(us), {}));
+    const figs = read<Record<string, LessonFigureImage>>(lessonFigsKey(us), {});
+    setFigures(figs);
+    setFigUrls(seedFigUrls(figs));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [us]);
 
   useEffect(() => {
@@ -1664,6 +1699,11 @@ export function useLessonFigures(us: string) {
           }
           write(lessonFigsKey(us), next);
           setFigures(next);
+          // show the just-uploaded picture immediately (no flash of the old
+          // default while the signed URL resolves), and warm the URL cache
+          // for future page loads
+          setFigUrls((u) => ({ ...u, [id]: image }));
+          void signedFigUrl(path);
           return true;
         } catch {
           return false; // upload failed (offline / permissions)
@@ -1693,6 +1733,10 @@ export function useLessonFigures(us: string) {
       delete next[id];
       write(lessonFigsKey(us), next);
       setFigures(next);
+      setFigUrls((u) => {
+        const { [id]: _gone, ...rest } = u;
+        return rest;
+      });
     },
     [us]
   );

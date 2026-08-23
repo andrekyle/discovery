@@ -2176,7 +2176,8 @@ export function UnitPage({
       (sec.figures ?? []).forEach((fig) => {
         const up = figureImages[fig.id];
         const def = FIGURE_DEFAULTS[fig.id];
-        const src = up?.image ?? def?.src;
+        // an uploaded figure replaces the default entirely — never show the old one
+        const src = up ? up.image : def?.src;
         if (!src) return;
         const fallbackBullets = (sec.paragraphs ?? [])
           .map((p) => p.replace(/^[•\-\u2022]\s*/, "").trim())
@@ -2873,7 +2874,7 @@ export function UnitPage({
                 const cap = capOf(g.id, g.caption);
                 let item: LightboxItem | null = null;
                 if (up?.image) item = { src: up.image, caption: cap };
-                else if (def)
+                else if (def && !up)
                   item = {
                     src: def.src,
                     caption: cap,
@@ -2901,7 +2902,8 @@ export function UnitPage({
               ? (() => {
                   const up = figureImages[heroFig.id];
                   const def = FIGURE_DEFAULTS[heroFig.id];
-                  const src = up?.image ?? def?.src;
+                  // an uploaded figure replaces the default entirely — never flash the old one
+                  const src = up ? up.image : def?.src;
                   const heroScale = scaleOf(heroFig.id);
                   const heroCap = capOf(heroFig.id, heroFig.caption);
                   const HeroTag: "button" | "div" = editable ? "div" : "button";
@@ -3299,7 +3301,9 @@ export function UnitPage({
                   <div className="card-grid lesson-cards">
                     {sec.cards.map((c, ci) => {
                       const cardFigSrc = c.figId
-                        ? figureImages[c.figId]?.image ?? FIGURE_DEFAULTS[c.figId]?.src
+                        ? figureImages[c.figId]
+                          ? figureImages[c.figId].image
+                          : FIGURE_DEFAULTS[c.figId]?.src
                         : undefined;
                       const cardTitle = cardText(ci, "t", c.title);
                       return (
@@ -3534,7 +3538,9 @@ export function UnitPage({
                             )}
                           </figure>
                         );
-                      const def = FIGURE_DEFAULTS[f.id];
+                      // uploaded-but-still-resolving figures must NOT fall back
+                      // to the replaced built-in default
+                      const def = up ? undefined : FIGURE_DEFAULTS[f.id];
                       if (def)
                         return (
                           <figure key={f.id} className={`lesson-figure${editable ? " editable" : ""}`} style={figStyle}>
@@ -3779,7 +3785,8 @@ export function UnitPage({
                 {isSlide && heroFig ? (() => {
                   const up = figureImages[heroFig.id];
                   const def = FIGURE_DEFAULTS[heroFig.id];
-                  const src = up?.image ?? def?.src;
+                  // an uploaded figure replaces the default entirely — never flash the old one
+                  const src = up ? up.image : def?.src;
                   const slideCap = capOf(heroFig.id, heroFig.caption);
                   return (
                     <div className="lesson-slide">
