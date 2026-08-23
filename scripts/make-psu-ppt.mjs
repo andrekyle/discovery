@@ -91,7 +91,7 @@ const pptx = new pptxgen();
 pptx.defineLayout({ name: "WIDE", width: W, height: H });
 pptx.layout = "WIDE";
 pptx.author = "Andre Snell";
-pptx.company = "Discovery — IT Systems Support";
+pptx.company = "Investec — IT Systems Support";
 pptx.title = "How a PSU Works — Rectifier & MOSFET";
 
 let pageNo = 0;
@@ -302,7 +302,7 @@ function divider(sectionNo, title, sub, iconName = "bolt") {
     s.addText(k, { x, y: 5.0, w: CW / 4 - 0.2, h: 0.3, fontFace: BODY_FONT, fontSize: 10, bold: true, color: DARK_LABEL, charSpacing: 2 });
     s.addText(v, { x, y: 5.3, w: CW / 4 - 0.2, h: 0.35, fontFace: BODY_FONT, fontSize: 13.5, color: WHITE });
   });
-  s.addText("Discovery · IT Systems Support · Learning content", {
+  s.addText("Investec · IT Systems Support · Learning content", {
     x: MX, y: H - 0.55, w: CW, h: 0.35, fontFace: BODY_FONT, fontSize: 10.5, color: DARK_MUTED,
   });
 }
@@ -1070,7 +1070,7 @@ divider(4, "MOSFET deep dive", "The impossibly-fast electronic switch that makes
   s.addText("From 230 V AC at the wall, through filtering, rectification, MOSFET switching, transformation, smoothing and regulation — to the exact voltages every component needs.", {
     x: MX + 1.0, y: 5.1, w: CW - 2.0, h: 1.2, fontFace: BODY_FONT, fontSize: 15, color: DARK_SUB, align: "center",
   });
-  s.addText("Discovery · IT Systems Support · Power Fundamentals", {
+  s.addText("Investec · IT Systems Support · Power Fundamentals", {
     x: MX, y: H - 0.55, w: CW, h: 0.35, fontFace: BODY_FONT, fontSize: 10.5, color: DARK_MUTED, align: "center",
   });
 }

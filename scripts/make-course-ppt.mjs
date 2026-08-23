@@ -67,7 +67,7 @@ const pptx = new pptxgen();
 pptx.defineLayout({ name: "WIDE", width: W, height: H });
 pptx.layout = "WIDE";
 pptx.author = "Andre Snell";
-pptx.company = "Discovery — Corporate Banking Technology";
+pptx.company = "Investec — Corporate Banking Technology";
 pptx.title = "IT Systems Support NQF 5 — Course Overview";
 
 let pageNo = 0;
@@ -155,7 +155,7 @@ function dataTable(s, header, rows, { x = MX, y = 2.0, w = CW, colW, fontSize = 
     s.addText(k, { x, y: 4.8, w: CW / 4 - 0.2, h: 0.3, fontFace: BODY_FONT, fontSize: 11.5, bold: true, color: BLUE, charSpacing: 2 });
     s.addText(v, { x, y: 5.12, w: CW / 4 - 0.2, h: 0.6, fontFace: BODY_FONT, fontSize: 14, color: NAVY });
   });
-  s.addText("ITSS Learn · Discovery · Corporate Banking Technology", { x: MX, y: H - 0.55, w: CW, h: 0.35, fontFace: BODY_FONT, fontSize: 12, color: GREY });
+  s.addText("ITSS Learn · Investec · Corporate Banking Technology", { x: MX, y: H - 0.55, w: CW, h: 0.35, fontFace: BODY_FONT, fontSize: 12, color: GREY });
 }
 
 /* ============================================================= ABOUT */

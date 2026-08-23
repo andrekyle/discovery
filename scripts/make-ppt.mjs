@@ -66,7 +66,7 @@ const pptx = new pptxgen();
 pptx.defineLayout({ name: "WIDE", width: W, height: H });
 pptx.layout = "WIDE";
 pptx.author = "Andre Snell";
-pptx.company = "Discovery — Corporate Banking Technology";
+pptx.company = "Investec — Corporate Banking Technology";
 pptx.title = "US 8252 — Compile and Produce Reports";
 
 let pageNo = 0;
@@ -76,7 +76,7 @@ function slide() {
   s.background = { color: WHITE };
   pageNo += 1;
   if (pageNo > 1) {
-    s.addText(`Unit Standard 8252 — Compile and Produce Reports   ·   Discovery IT Systems Support NQF 5`, {
+    s.addText(`Unit Standard 8252 — Compile and Produce Reports   ·   Investec IT Systems Support NQF 5`, {
       x: MX, y: H - 0.42, w: CW - 1, h: 0.3, fontFace: BODY_FONT, fontSize: 9, color: GREY, align: "left",
     });
     s.addText(String(pageNo), {
@@ -219,7 +219,7 @@ function exampleCard(s, title, body, { y = 2.3, h = 2.0 } = {}) {
   s.addShape(pptx.ShapeType.rect, { x: MX, y, w: 0.09, h, fill: { color: BLUE } });
   addIcon(s, "briefcase", MX + CW - 0.66, y + 0.2, 0.38);
   s.addText([
-    { text: "WORKPLACE EXAMPLE \u2014 DISCOVERY\n", options: { bold: true, color: BLUE, fontSize: 10.5, charSpacing: 1.5 } },
+    { text: "WORKPLACE EXAMPLE \u2014 INVESTEC\n", options: { bold: true, color: BLUE, fontSize: 10.5, charSpacing: 1.5 } },
     { text: title + "\n", options: { bold: true, color: NAVY, fontSize: 15, fontFace: TITLE_FONT } },
     { text: body, options: { color: NAVY, fontSize: 12.5 } },
   ], { x: MX + 0.32, y: y + 0.16, w: CW - 1.1, h: h - 0.32, fontFace: BODY_FONT, valign: "top", lineSpacingMultiple: 1.15 });
@@ -252,14 +252,14 @@ function divider(sectionNo, title, sub, iconName = "book") {
     ["FACILITATOR", "Andre Snell"],
     ["DATE", "Friday, 17 July 2026"],
     ["TIME", "09:00 – 14:00"],
-    ["VENUE", "Discovery, Sandton, Johannesburg"],
+    ["VENUE", "Investec, Sandton, Johannesburg"],
   ];
   meta.forEach(([k, v], i) => {
     const x = MX + i * (CW / 4);
     s.addText(k, { x, y: 4.8, w: CW / 4 - 0.2, h: 0.3, fontFace: BODY_FONT, fontSize: 10, bold: true, color: DARK_LABEL, charSpacing: 2 });
     s.addText(v, { x, y: 5.1, w: CW / 4 - 0.2, h: 0.35, fontFace: BODY_FONT, fontSize: 13.5, color: WHITE });
   });
-  s.addText("Discovery · Corporate Banking Technology · IT Systems Support NQF Level 5 (SAQA ID 48573)", {
+  s.addText("Investec · Corporate Banking Technology · IT Systems Support NQF Level 5 (SAQA ID 48573)", {
     x: MX, y: H - 0.55, w: CW, h: 0.35, fontFace: BODY_FONT, fontSize: 10.5, color: DARK_MUTED,
   });
 }
@@ -347,7 +347,7 @@ topicSlides(1, "Embedded knowledge", "Purpose and content of reports",
   "Relate the purpose and content of a range of reports to the information needs of the business.",
   "Every report exists to answer a reader's questions so a decision can be made. Content must match what the reader needs — nothing more, nothing less.",
   (s) => flow(s, ["Why am I\nwriting this?", "Who will\nread it?", "What will\nthey decide?", "Write only what\nanswers that"], { y: 3.15, h: 1.5 }),
-  { t: "Incident report after a network outage", d: "An Discovery IT Support Technician writes an incident report after a network outage. The IT Manager needs five answers: What happened? Why did it happen? Which users were affected? How was it fixed? How will it be prevented? The report answers exactly those questions — with no unnecessary technical detail." },
+  { t: "Incident report after a network outage", d: "An Investec IT Support Technician writes an incident report after a network outage. The IT Manager needs five answers: What happened? Why did it happen? Which users were affected? How was it fixed? How will it be prevented? The report answers exactly those questions — with no unnecessary technical detail." },
   "Confirm the reader's questions before you write a single word.",
   "Padding the report with technical detail the reader never asked for.",
   "Your IT Manager requests an outage report. Name three questions the report must answer before they will call it complete.");
@@ -393,7 +393,7 @@ topicSlides(4, "Embedded knowledge", "Layout and format standards",
     { icon: "pen", t: "Typography", d: "Aptos font · blue headings · consistent sizes" },
     { icon: "compass", t: "Navigation", d: "Page numbers · tables for data · professional finish" },
   ], { y: 3.0, cols: 4, rowH: 1.85 }),
-  { t: "The Discovery house style", d: "Discovery reports use the Aptos font, defined heading styles with blue headings, page numbering, a confidential classification on the cover and an automatic table of contents. A report in house style is recognised — and trusted — instantly." },
+  { t: "The Investec house style", d: "Investec reports use the Aptos font, defined heading styles with blue headings, page numbering, a confidential classification on the cover and an automatic table of contents. A report in house style is recognised — and trusted — instantly." },
   "Start from the approved company template so every standard is applied automatically.",
   "Building each report from a blank page with improvised fonts and headings.",
   "Name four formatting elements every company report must carry before it can be submitted.");
@@ -405,7 +405,7 @@ topicSlides(5, "Embedded knowledge", "Information needs of the organisation",
   (s) => beforeAfter(s, "The server crashed.",
     "The server outage affected 43 users, interrupted online banking for 18 minutes, delayed two client transactions, and generated 26 helpdesk tickets.",
     { y: 2.95, h: 2.4 }),
-  { t: "Answer management's five questions", d: "How much did it cost? Which departments were affected? What caused the issue? What is the business impact? What should we do next? A report that answers all five lets an Discovery department head act the same day, without a follow-up meeting." },
+  { t: "Answer management's five questions", d: "How much did it cost? Which departments were affected? What caused the issue? What is the business impact? What should we do next? A report that answers all five lets an Investec department head act the same day, without a follow-up meeting." },
   "Quantify impact: users, minutes, tickets, transactions, rands.",
   "Vague statements — 'the system was slow' — that no one can act on.",
   "Rewrite 'Email was down for a while this morning' so that it answers management's impact questions.");
@@ -421,7 +421,7 @@ topicSlides(6, "Embedded knowledge", "Purpose and content of a range of reports"
     ["Maintenance report", "What work was completed?", "Performance report", "How well are we doing?"],
     ["Progress / project report", "How far are we?", "Inventory report", "What do we have?"],
   ], { y: 2.95, fontSize: 12 }),
-  { t: "Same outage, different reports", d: "One SAN failure at Discovery produces an incident report (what happened), a maintenance report (the disk replacement completed), and feeds the monthly service report (availability against SLA). Three documents, three purposes — never mixed into one." },
+  { t: "Same outage, different reports", d: "One SAN failure at Investec produces an incident report (what happened), a maintenance report (the disk replacement completed), and feeds the monthly service report (availability against SLA). Three documents, three purposes — never mixed into one." },
   "Name the report type before you start writing — it fixes the purpose and the content.",
   "Mixing incident detail, maintenance logs and performance stats into one unfocused document.",
   "A director asks 'what work was completed on the SAN last night?' — which report type answers that?");
@@ -496,7 +496,7 @@ topicSlides(11, "Practical activity", "Compiling complete reports on deadline",
     { t: "Organise logically" }, { t: "Use correct format" }, { t: "Apply company standards" },
     { t: "Write professionally" }, { t: "Proofread" }, { t: "Submit on time" },
   ], { y: 2.95, cols: 3, rowH: 0.85, gap: 0.18 }),
-  { t: "Outlook outage — Corporate Banking Technology", d: "An Discovery IT Support Technician investigates a Microsoft Outlook outage. Evidence comes from ServiceNow tickets, Microsoft Entra ID logs and user interviews; the cause is a failed authentication certificate. The incident report is prepared on the approved template with clear headings, findings, conclusions and recommendations, proofread, and submitted to the IT Support Manager inside the 24-hour deadline." },
+  { t: "Outlook outage — Corporate Banking Technology", d: "An Investec IT Support Technician investigates a Microsoft Outlook outage. Evidence comes from ServiceNow tickets, Microsoft Entra ID logs and user interviews; the cause is a failed authentication certificate. The incident report is prepared on the approved template with clear headings, findings, conclusions and recommendations, proofread, and submitted to the IT Support Manager inside the 24-hour deadline." },
   "Work the nine steps in order — planning and verification prevent rewrites later.",
   "Jumping straight to writing before evidence is gathered and verified.",
   "Which three evidence sources did the technician combine in the Outlook outage investigation?");
@@ -540,7 +540,7 @@ divider(3, "Wrap-up and Assessment", "Summary, assessment preparation, practical
 {
   const s = slide();
   eyebrowTitle(s, "Wrap-up", "Practical activity — your turn");
-  objectiveStrip(s, "Apply all eleven criteria to a realistic Discovery support scenario.");
+  objectiveStrip(s, "Apply all eleven criteria to a realistic Investec support scenario.");
   exampleCard(s, "Scenario — Teams outage on the trading floor",
     "At 08:40, Microsoft Teams stops connecting for 30 users in Corporate Banking Technology. By 09:25 the cause is traced to an expired proxy certificate and service is restored. Your task: compile the incident report. Gather evidence from ServiceNow, Entra ID sign-in logs and two user interviews; quantify the impact; apply the company template; and submit to the IT Support Manager within 24 hours.",
     { y: 2.3, h: 2.3 });
@@ -605,7 +605,7 @@ divider(3, "Wrap-up and Assessment", "Summary, assessment preparation, practical
   s.addText("File your questionnaire, self-assessment and logbook evidence in your Portfolio of Evidence.\nNext session date to be agreed at close — thank you for your participation.", {
     x: MX, y: 4.05, w: 10, h: 1.0, fontFace: BODY_FONT, fontSize: 15, color: DARK_SUB, lineSpacingMultiple: 1.25,
   });
-  s.addText("Unit Standard 8252 · Andre Snell · Discovery, Sandton, Johannesburg", {
+  s.addText("Unit Standard 8252 · Andre Snell · Investec, Sandton, Johannesburg", {
     x: MX, y: H - 0.6, w: CW, h: 0.35, fontFace: BODY_FONT, fontSize: 10.5, color: DARK_MUTED,
   });
 }

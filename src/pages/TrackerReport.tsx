@@ -14,7 +14,7 @@ import { FILES_BUCKET } from "../lib/files";
  * sidesteps any content-type / content-disposition quirks on the storage
  * response (those made a plain signed-URL iframe render blank).
  */
-const TRACKER_PATH = "shared/reports/learner-tracker-discovery-aug-2026.html";
+const TRACKER_PATH = "shared/reports/learner-tracker-investec-aug-2026.html";
 
 type Status = "loading" | "missing" | "ready" | "error";
 
@@ -126,7 +126,7 @@ export function TrackerReportPage({ profile }: { profile: Profile }) {
         <div className="card">
           <p style={{ marginBottom: 10 }}>
             The report is not in cloud storage yet. Upload{" "}
-            <strong>Learner-Tracker-Discovery-Aug-2026.html</strong> once — after this it opens
+            <strong>Learner-Tracker-Investec-Aug-2026.html</strong> once — after this it opens
             directly on any device. It is stored privately; only signed-in users can reach it.
           </p>
           {note && <p style={{ marginBottom: 10 }}>{note}</p>}

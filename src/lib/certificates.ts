@@ -288,7 +288,7 @@ export function openCertificate(profile: Profile, creditsEarned: number) {
   <div class="page"><div class="sheet"><div class="frame">
 
     <div class="rep">Republic of South Africa</div>
-    <div class="provider">ITSS Learn · Discovery Group</div>
+    <div class="provider">ITSS Learn · Investec Group</div>
     <div class="accred">Skills development provider delivering training quality assured by ${esc(COURSE_META.qualityAssurance)}</div>
 
     <div class="rule"></div>

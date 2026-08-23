@@ -141,7 +141,7 @@ export function PoePage({ profile }: { profile: Profile }) {
         Portfolio of Evidence
       </div>
       <h1 className="page-title">Portfolio of Evidence</h1>
-      <p className="page-sub">System Support NQF Level 5 Learnership · Discovery Group</p>
+      <p className="page-sub">System Support NQF Level 5 Learnership · Investec Group</p>
 
       {canBrowse && (
         <div className="poe-viewer card">

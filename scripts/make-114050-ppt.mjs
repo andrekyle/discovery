@@ -61,7 +61,7 @@ const pptx = new pptxgen();
 pptx.defineLayout({ name: "WIDE", width: W, height: H });
 pptx.layout = "WIDE";
 pptx.author = "Andre Snell";
-pptx.company = "Discovery — Corporate Banking Technology";
+pptx.company = "Investec — Corporate Banking Technology";
 pptx.title = "US 114050 — Principles of Business and the Role of Information Technology";
 
 let pageNo = 0;
@@ -156,7 +156,7 @@ function bulletList(s, items, { x = MX, y = 1.7, w = CW, h = 5.0, fontSize = MIN
     s.addText(k, { x, y: 4.82, w: CW / 4 - 0.2, h: 0.36, fontFace: BODY_FONT, fontSize: MIN_FONT, bold: true, color: BLUE, charSpacing: 1 });
     s.addText(v, { x, y: 5.2, w: CW / 4 - 0.2, h: 1.0, fontFace: BODY_FONT, fontSize: MIN_FONT, color: NAVY, lineSpacingMultiple: 1.1 });
   });
-  s.addText("ITSS Learn · Discovery · Corporate Banking Technology", { x: MX, y: H - 0.62, w: CW, h: 0.4, fontFace: BODY_FONT, fontSize: MIN_FONT, color: GREY });
+  s.addText("ITSS Learn · Investec · Corporate Banking Technology", { x: MX, y: H - 0.62, w: CW, h: 0.4, fontFace: BODY_FONT, fontSize: MIN_FONT, color: GREY });
 }
 
 /* ============================================================= OUTCOMES */
