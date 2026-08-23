@@ -497,6 +497,8 @@ export interface UnitContent {
   /** multiple titled quizzes — shown as a chooser on the Quiz tab */
   quizzes?: NamedQuiz[];
   saqa?: SaqaDetails;
+  /** official exam study guide (vendor certification courses) — replaces the QCTO learning-activities block on the Overview tab */
+  studyGuide?: StudyGuide;
   logbook?: LogbookSpec;
   notes?: UnitNote[];
   lessonPlan?: LessonPlan;
@@ -504,6 +506,23 @@ export interface UnitContent {
   questionSessions?: Exercise[];
   /** end-of-unit self assessment checklist — rendered on its own tab with tickable boxes */
   selfAssessment?: SelfAssessment;
+}
+
+/** Official "skills measured" study guide for a vendor certification exam. */
+export interface StudyGuide {
+  /** e.g. "Skills measured as of July 20, 2026" */
+  asOf: string;
+  /** link to the official study guide page */
+  url: string;
+  /** audience-profile paragraphs */
+  audience: string[];
+  /** skills at a glance, e.g. "Describe cloud concepts (25–30%)" */
+  skillsAtAGlance: string[];
+  /** the detailed outline: each skill area with its topic groups */
+  areas: {
+    heading: string;
+    groups: { heading: string; items: string[] }[];
+  }[];
 }
 
 /** End-of-unit self assessment: learner ticks each statement they feel competent in. */

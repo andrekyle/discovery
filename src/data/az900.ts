@@ -17,6 +17,7 @@ export const AZ900_CONTENT: UnitContent = {
       lessonStart: { n: 1, title: "Describe cloud concepts (25–30% of the exam)" },
       paragraphs: [
         "Microsoft Certified: Azure Fundamentals (exam AZ-900) proves you understand cloud concepts, the core services Microsoft Azure offers, and how Azure is managed and governed. It is Microsoft's entry-level cloud certification — there are no prerequisites, and it suits technical and non-technical learners alike.",
+        "Audience profile: as a candidate for this exam, you're a technology professional who wants to demonstrate foundational knowledge of cloud concepts in general and Microsoft Azure in particular. This exam is a common starting point in a journey towards a career in Azure. You should have skills and experience working with an area of IT, such as infrastructure management, database management or software development.",
         "The exam measures three skill areas, and this course follows them exactly: Lesson 1 — Describe cloud concepts (25–30%); Lesson 2 — Describe Azure architecture and services (35–40%); Lesson 3 — Describe Azure management and governance (30–35%).",
         "Exam at a glance: ±40–60 multiple-choice/multiple-select questions · 45 minutes · passing score 700 out of 1000 · delivered at Pearson VUE test centres or online proctored.",
         "Official certification page, study guide and free practice assessment: https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/",
@@ -44,6 +45,28 @@ export const AZ900_CONTENT: UnitContent = {
           options: ["None", "Two years of Azure administration", "A programming certification", "Grade 12 mathematics"],
           answer: 0,
           explain: "AZ-900 is the entry point to Azure certification — no prior certification or experience is required.",
+        },
+        {
+          q: "According to the audience profile, AZ-900 candidates typically have experience in areas such as…",
+          options: [
+            "Infrastructure management, database management or software development",
+            "Carpentry, plumbing or welding",
+            "Only cybersecurity",
+            "None — you may not have any IT experience",
+          ],
+          answer: 0,
+          explain: "The official audience profile lists infrastructure management, database management and software development as typical backgrounds.",
+        },
+        {
+          q: "Which skill area carries the LARGEST share of the AZ-900 exam?",
+          options: [
+            "Describe Azure architecture and services (35–40%)",
+            "Describe cloud concepts (25–30%)",
+            "Describe Azure management and governance (30–35%)",
+            "They are all exactly equal",
+          ],
+          answer: 0,
+          explain: "Architecture and services is weighted 35–40% — the biggest of the three skill areas.",
         },
       ],
     },
@@ -83,6 +106,39 @@ export const AZ900_CONTENT: UnitContent = {
           options: ["Compute and storage", "Printing and scanning", "Email and chat", "Backup tapes and DVDs"],
           answer: 0,
           explain: "Compute power and storage are the two core building blocks nearly every cloud solution uses.",
+        },
+        {
+          q: "The 'virtual' cloud ultimately runs on…",
+          options: [
+            "Real physical datacenters full of servers, storage and networking",
+            "Nothing — it is entirely imaginary",
+            "Weather balloons",
+            "A single giant computer",
+          ],
+          answer: 0,
+          explain: "Microsoft operates hundreds of physical datacenters — every virtual resource is backed by real hardware.",
+        },
+        {
+          q: "Besides compute and storage, cloud providers also deliver…",
+          options: [
+            "Databases, AI/ML, IoT and other higher-level services",
+            "Only printing services",
+            "Office furniture",
+            "Physical laptops posted to your door",
+          ],
+          answer: 0,
+          explain: "The cloud offers ready-made building blocks — databases, AI, analytics, IoT — that you rent instead of build.",
+        },
+        {
+          q: "Because the cloud is not limited by hardware you own, you can…",
+          options: [
+            "Expand and shrink your IT footprint quickly as needs change",
+            "Never change anything again",
+            "Only ever grow, never shrink",
+            "Avoid paying for anything",
+          ],
+          answer: 0,
+          explain: "Rented capacity scales in both directions — a key advantage over fixed on-premises hardware.",
         },
       ],
     },
@@ -128,6 +184,28 @@ export const AZ900_CONTENT: UnitContent = {
           answer: 0,
           explain: "IaaS gives you the most control — and with it responsibility for the OS, patching and everything installed on it.",
         },
+        {
+          q: "Which responsibility is ALWAYS the cloud provider's, in every service type?",
+          options: [
+            "The physical datacenter, physical network and physical hosts",
+            "Your user accounts",
+            "Your data classification",
+            "Your connected devices",
+          ],
+          answer: 0,
+          explain: "The provider always owns the physical layer; the customer always owns data, devices and identities.",
+        },
+        {
+          q: "In SaaS, the customer's remaining responsibilities are…",
+          options: [
+            "Their data, devices, accounts and identities",
+            "Patching the application servers",
+            "Replacing datacenter cooling",
+            "Nothing at all",
+          ],
+          answer: 0,
+          explain: "Even in SaaS you still govern your information, endpoints and sign-ins — everything else is the provider's.",
+        },
       ],
     },
     {
@@ -169,18 +247,46 @@ export const AZ900_CONTENT: UnitContent = {
           answer: 0,
           explain: "Azure Arc extends Azure management to servers and services running anywhere.",
         },
+        {
+          q: "Which cloud model gives an organisation the GREATEST control over hardware and data?",
+          options: ["Private cloud", "Public cloud", "Hybrid cloud", "Spot instances"],
+          answer: 0,
+          explain: "A private cloud is dedicated to one organisation — maximum control, at higher cost and responsibility.",
+        },
+        {
+          q: "Which is the best use case for the PUBLIC cloud?",
+          options: [
+            "A startup that wants to launch quickly with no upfront hardware investment",
+            "A workload legally required to run on hardware only you control",
+            "A factory with no internet connection",
+            "Storing paper documents",
+          ],
+          answer: 0,
+          explain: "Public cloud excels when you need speed and scale without capital expenditure.",
+        },
       ],
     },
     {
-      heading: "The consumption-based model — CapEx vs OpEx",
+      heading: "The consumption-based model — pricing models and serverless",
       icon: "trend",
       flat: true,
       paragraphs: [
         "There are two ways organisations spend money on IT. Capital expenditure (CapEx) is a one-time, up-front purchase of physical infrastructure — servers, storage, buildings — whose value depreciates over time. Operational expenditure (OpEx) is ongoing spending on services as you use them.",
         "Cloud computing is OpEx: it works on a consumption-based model. You pay only for the resources you actually use — no up-front hardware cost, no paying for idle capacity, and you can stop paying the moment you stop using a resource.",
         "The benefits: no upfront costs · no need to buy and manage costly infrastructure that you might not use to its fullest · the ability to pay for more resources only when needed · the ability to stop paying for resources that are no longer needed.",
+        "Comparing cloud pricing models: pay-as-you-go charges the metered rate with no commitment — maximum flexibility. Reserved instances / reservations commit you to one or three years of a resource in exchange for a large discount (up to ~72%) — ideal for steady, predictable workloads. Savings plans commit to a fixed hourly spend on compute across services for one or three years — discounts with more flexibility than reservations. Spot pricing buys Azure's spare capacity at the deepest discounts, but workloads can be evicted at any time — only for interruptible jobs like batch processing.",
+        "Serverless computing takes consumption-based pricing to its limit: you write code (or build workflows) and the platform runs it on demand — no servers to provision, size or manage at all. Billing is per execution/per second of actual use, and the platform scales automatically from zero to peak. Azure examples: Azure Functions (event-driven code) and Azure Logic Apps (workflows).",
         "This also gives better cost prediction: prices for services are known, and tools such as the Pricing calculator and Microsoft Cost Management (covered in Lesson 3) forecast and track what you will spend.",
       ],
+      table: {
+        headers: ["Pricing model", "Commitment", "Best for"],
+        rows: [
+          ["Pay-as-you-go", "None — metered usage", "Variable or unpredictable workloads"],
+          ["Reserved instances", "1 or 3 years on a specific resource", "Steady production workloads (biggest discounts)"],
+          ["Savings plan", "1 or 3 years of fixed hourly compute spend", "Predictable spend across changing services"],
+          ["Spot", "None — capacity can be reclaimed", "Interruptible batch jobs and test runs"],
+        ],
+      },
       slideQuiz: [
         {
           q: "Buying a rack of servers for your own server room is an example of…",
@@ -198,6 +304,29 @@ export const AZ900_CONTENT: UnitContent = {
           ],
           answer: 0,
           explain: "Pay-as-you-go: usage is metered, and you can stop paying when you deallocate or delete resources.",
+        },
+        {
+          q: "A production database will run 24/7 for the next three years. Which pricing model gives the biggest discount?",
+          options: ["Reserved instances (1- or 3-year reservation)", "Pay-as-you-go", "Spot pricing", "A free trial"],
+          answer: 0,
+          explain: "Reservations trade a 1/3-year commitment for discounts of up to ~72% on steady workloads.",
+        },
+        {
+          q: "Which pricing model risks your workload being EVICTED when Azure needs the capacity back?",
+          options: ["Spot pricing", "Reserved instances", "Savings plan", "Pay-as-you-go"],
+          answer: 0,
+          explain: "Spot buys spare capacity at deep discounts — fine for interruptible batch jobs, never for production services.",
+        },
+        {
+          q: "Which statement best describes SERVERLESS computing?",
+          options: [
+            "The platform runs your code on demand and bills per execution — no servers for you to provision or manage",
+            "Computing without any physical servers existing anywhere",
+            "A VM with the monitor unplugged",
+            "Free computing",
+          ],
+          answer: 0,
+          explain: "Servers still exist — but provisioning, scaling and management are entirely the platform's job (e.g. Azure Functions).",
         },
       ],
     },
@@ -243,6 +372,23 @@ export const AZ900_CONTENT: UnitContent = {
           answer: 0,
           explain: "Elasticity is automatic scaling that follows demand — capacity when you need it, savings when you don't.",
         },
+        {
+          q: "Where is a service's guaranteed uptime formally defined?",
+          options: [
+            "In its Service Level Agreement (SLA)",
+            "In the marketing brochure",
+            "In the source code",
+            "Nowhere — uptime is never promised",
+          ],
+          answer: 0,
+          explain: "Azure publishes an SLA per service — the uptime commitment and remedies if it is missed.",
+        },
+        {
+          q: "Upgrading one database server from 8 GB to 64 GB of RAM is…",
+          options: ["Vertical scaling (scaling up)", "Horizontal scaling (scaling out)", "Elastic eviction", "Geo-replication"],
+          answer: 0,
+          explain: "Changing the power of a single machine is vertical scaling; adding machines is horizontal.",
+        },
       ],
     },
     {
@@ -272,6 +418,39 @@ export const AZ900_CONTENT: UnitContent = {
           ],
           answer: 0,
           explain: "Autoscaling and HA give predictable performance; metering, forecasting and calculators give predictable cost.",
+        },
+        {
+          q: "Which cloud benefit means one failure doesn't take your whole solution down?",
+          options: [
+            "Reliability — decentralised regions, zones and backups let the system recover",
+            "Portability",
+            "Anonymity",
+            "Bandwidth",
+          ],
+          answer: 0,
+          explain: "Reliability is the ability to recover from failures and continue functioning — built into the cloud's design.",
+        },
+        {
+          q: "'Manageability OF the cloud' includes…",
+          options: [
+            "Auto-scaling, template deployments, health monitoring and automatic replacement of failing resources",
+            "Dusting the servers yourself",
+            "Driving to the datacenter to reboot machines",
+            "Printing the portal",
+          ],
+          answer: 0,
+          explain: "Managing cloud resources: autoscale, templates, monitoring, alerts. (Manageability IN the cloud = portal/CLI/API access from anywhere.)",
+        },
+        {
+          q: "How does the cloud help with GOVERNANCE?",
+          options: [
+            "Templates and policies keep every deployed resource compliant with corporate standards",
+            "It removes all rules",
+            "It hides resources from auditors",
+            "It makes compliance impossible",
+          ],
+          answer: 0,
+          explain: "Set the standard once (policy/template) and every deployment inherits it — with audit trails built in.",
         },
       ],
     },
@@ -317,6 +496,12 @@ export const AZ900_CONTENT: UnitContent = {
           options: ["IaaS virtual machines", "SaaS subscriptions", "Static websites", "Paper forms"],
           answer: 0,
           explain: "Lift-and-shift moves servers as-is onto cloud VMs — no re-architecting required.",
+        },
+        {
+          q: "Which service type sits BETWEEN 'you manage everything' and 'you manage almost nothing'?",
+          options: ["PaaS", "IaaS", "SaaS", "On-premises"],
+          answer: 0,
+          explain: "PaaS is the middle ground: the provider runs the platform, you bring the app and data.",
         },
       ],
     },
@@ -368,6 +553,17 @@ export const AZ900_CONTENT: UnitContent = {
           options: ["A sovereign region (e.g. US Government)", "A free trial subscription", "Any region with zones", "A content delivery network"],
           answer: 0,
           explain: "Sovereign regions are isolated Azure instances for government/compliance-critical workloads.",
+        },
+        {
+          q: "What is an Azure datacenter?",
+          options: [
+            "A physical facility with racks of servers and independent power, cooling and networking",
+            "A folder in the portal",
+            "A billing report",
+            "A type of subscription",
+          ],
+          answer: 0,
+          explain: "Datacenters are the physical buildings; regions group them; zones keep them independent.",
         },
       ],
     },
@@ -427,6 +623,17 @@ export const AZ900_CONTENT: UnitContent = {
           answer: 0,
           explain: "Policies applied to a management group are inherited by every subscription under it.",
         },
+        {
+          q: "A subscription is best described as…",
+          options: [
+            "A unit of management, billing and scale linking resource groups to a billing account",
+            "A physical server",
+            "A type of virtual network",
+            "An email newsletter",
+          ],
+          answer: 0,
+          explain: "Subscriptions separate billing and environments (e.g. Prod vs Dev) under a tenant.",
+        },
       ],
     },
     {
@@ -441,6 +648,8 @@ export const AZ900_CONTENT: UnitContent = {
         "Azure Functions is serverless computing: your code runs only in response to an event (an HTTP request, a timer, a message) and you are billed only for the execution time. No servers to size, patch or scale.",
         "Azure App Service is PaaS hosting for websites, APIs and web apps with built-in load balancing, autoscaling, deployment slots and CI/CD integration.",
         "Azure Virtual Desktop delivers full Windows desktops and apps from the cloud to any device — users get a secure, centrally-managed desktop experience anywhere.",
+        "Resources required for a virtual machine: a size (the CPU cores and RAM you choose), disks (a managed OS disk, plus optional data disks — Standard HDD/SSD or Premium SSD), a network interface in a virtual network subnet, usually a public or private IP address, and typically a network security group to filter traffic. Creating a VM in the portal creates these supporting resources with it.",
+        "Application hosting options compared: virtual machines give maximum control (and maximum responsibility) for hosting any app; containers package the app for fast, dense, portable hosting; Azure App Service hosts web apps and APIs on a fully managed platform. Choose by how much of the stack you want to own.",
       ],
       table: {
         headers: ["Need", "Best-fit service", "Why"],
@@ -488,6 +697,17 @@ export const AZ900_CONTENT: UnitContent = {
           answer: 0,
           explain: "Scale sets manage groups of identical VMs with autoscaling rules.",
         },
+        {
+          q: "Which resources are created alongside a new Azure VM?",
+          options: [
+            "A size (CPU/RAM), managed disks, a network interface in a subnet, an IP address and usually a network security group",
+            "A printer and a scanner",
+            "A new subscription",
+            "Nothing — a VM needs no other resources",
+          ],
+          answer: 0,
+          explain: "A VM is a bundle: compute size, OS/data disks, NIC in a VNet subnet, IP and NSG.",
+        },
       ],
     },
     {
@@ -532,6 +752,17 @@ export const AZ900_CONTENT: UnitContent = {
           answer: 0,
           explain: "Private endpoints remove public exposure — access flows through your private address space.",
         },
+        {
+          q: "What do SUBNETS do inside a virtual network?",
+          options: [
+            "Divide the address space into segments for organisation and security",
+            "Convert electricity",
+            "Store blobs",
+            "Print network diagrams",
+          ],
+          answer: 0,
+          explain: "Subnets segment a VNet — e.g. separate web, app and database tiers with different security rules.",
+        },
       ],
     },
     {
@@ -540,6 +771,7 @@ export const AZ900_CONTENT: UnitContent = {
       flat: true,
       paragraphs: [
         "An Azure storage account provides a unique namespace for your data, accessible worldwide over HTTPS. Within it you use different services for different shapes of data.",
+        "Storage account options: Standard general-purpose v2 covers blobs, files, queues and tables on standard tiers and supports every redundancy option; Premium accounts run on SSDs for low latency — premium block blobs (high-transaction blob workloads), premium file shares (SMB and NFS) and premium page blobs (disk-style workloads). Every account's name must be globally unique because it forms the endpoint URL (e.g. https://mydata.blob.core.windows.net).",
         "Blob storage is massively scalable object storage for unstructured data — documents, images, video, backups, log files. Blobs live in containers and are served over HTTP/HTTPS.",
         "Blob access tiers optimise cost by how often you touch the data: Hot (frequent access), Cool (infrequent — stored ≥30 days), Cold (rare — ≥90 days) and Archive (offline, cheapest — ≥180 days, hours to rehydrate). Cooler tiers cost less to store but more to access.",
         "Azure Files provides fully managed SMB/NFS file shares in the cloud — mount them like a normal network drive from Windows, Linux or macOS. Azure File Sync caches Azure file shares on local Windows Servers for fast branch-office access.",
@@ -581,6 +813,17 @@ export const AZ900_CONTENT: UnitContent = {
           options: ["Azure Files", "Blob containers", "Queue storage", "Azure DNS"],
           answer: 0,
           explain: "Azure Files serves managed SMB/NFS shares; File Sync can cache them on local servers.",
+        },
+        {
+          q: "Why must a storage account's name be globally unique?",
+          options: [
+            "It forms part of the public endpoint URL, e.g. https://name.blob.core.windows.net",
+            "Microsoft charges per letter",
+            "It is stored on one worldwide server",
+            "It doesn't have to be unique",
+          ],
+          answer: 0,
+          explain: "The account name becomes the DNS name of your storage endpoints, so no two accounts can share it.",
         },
       ],
     },
@@ -680,6 +923,17 @@ export const AZ900_CONTENT: UnitContent = {
           answer: 0,
           explain: "Portal cosmetics are free; type, size, region, consumption and egress traffic all influence cost.",
         },
+        {
+          q: "Network traffic pricing in Azure generally means…",
+          options: [
+            "Inbound data is free; outbound (egress) data is billed",
+            "Everything network-related is free",
+            "Inbound data is billed; outbound is free",
+            "You pay per email sent",
+          ],
+          answer: 0,
+          explain: "Ingress is typically free; egress between regions and to the internet is metered — a real cost factor in architectures.",
+        },
       ],
     },
     {
@@ -710,6 +964,18 @@ export const AZ900_CONTENT: UnitContent = {
           options: ["The Service Trust Portal", "The Pricing calculator", "Azure DNS", "GitHub"],
           answer: 0,
           explain: "The Service Trust Portal hosts audit reports and compliance resources for Microsoft's cloud services.",
+        },
+        {
+          q: "Which service maps, catalogues and classifies your data across Azure, on-premises and other clouds?",
+          options: ["Microsoft Purview", "Azure DNS", "Azure Functions", "The Pricing calculator"],
+          answer: 0,
+          explain: "Purview is the unified data-governance service — what data exists, where it lives, how sensitive it is.",
+        },
+        {
+          q: "Grouping several related policies into one assignable unit is called…",
+          options: ["An initiative", "A resource lock", "A subscription", "A blob container"],
+          answer: 0,
+          explain: "Initiatives bundle policies for big goals — e.g. a whole regulatory-compliance standard at once.",
         },
       ],
     },
@@ -742,6 +1008,28 @@ export const AZ900_CONTENT: UnitContent = {
           options: ["ARM templates (Infrastructure as Code)", "Manual portal clicks each time", "Screenshots", "Email instructions"],
           answer: 0,
           explain: "Declarative templates are repeatable, reviewable and version-controlled — no click-drift between environments.",
+        },
+        {
+          q: "Which pair are Azure's SCRIPTABLE command-line tools?",
+          options: [
+            "Azure CLI (az) and Azure PowerShell",
+            "Notepad and Paint",
+            "Word and Excel",
+            "Task Manager and Control Panel",
+          ],
+          answer: 0,
+          explain: "Both run on Windows, Linux and macOS — anything clickable in the portal can be scripted with them.",
+        },
+        {
+          q: "The Azure portal is best described as…",
+          options: [
+            "The web-based graphical interface for building, managing and monitoring Azure resources",
+            "A physical building",
+            "A programming language",
+            "An exam voucher",
+          ],
+          answer: 0,
+          explain: "The portal is the GUI — with customisable dashboards — over the same ARM API the CLI and PowerShell use.",
         },
       ],
     },
@@ -780,6 +1068,17 @@ export const AZ900_CONTENT: UnitContent = {
           answer: 0,
           explain: "Alert rules watch metrics/logs and trigger notifications or automated actions on thresholds.",
         },
+        {
+          q: "Which THREE views make up Azure Service Health?",
+          options: [
+            "Azure Status, Service Health and Resource Health",
+            "North, South and Central",
+            "Portal, CLI and PowerShell",
+            "Hot, Cool and Archive",
+          ],
+          answer: 0,
+          explain: "Global platform status → the services/regions you use → the health of your individual resources.",
+        },
       ],
     },
     {
@@ -809,6 +1108,39 @@ export const AZ900_CONTENT: UnitContent = {
           ],
           answer: 0,
           explain: "The certification page links the free practice assessment and the exam scheduling.",
+        },
+        {
+          q: "A sensible readiness target before booking the real exam is…",
+          options: [
+            "At least 80% on every skill-area quiz plus a pass on the official practice assessment",
+            "Reading the syllabus once",
+            "Memorising three questions",
+            "No preparation at all",
+          ],
+          answer: 0,
+          explain: "Consistent 80%+ on all three quizzes and the practice assessment shows you cover every weighted area.",
+        },
+        {
+          q: "Words like 'ONLY', 'ALWAYS' and 'MOST cost-effective' in exam questions signal that you should…",
+          options: [
+            "Read carefully — they change which answer is correct",
+            "Skip the question",
+            "Always pick option A",
+            "Complain to the proctor",
+          ],
+          answer: 0,
+          explain: "Qualifiers narrow the correct choice — e.g. several options may work, but only one is MOST cost-effective.",
+        },
+        {
+          q: "After passing AZ-900, which certification is this course's natural next step?",
+          options: [
+            "AI-900 — Azure AI Fundamentals (Module 9)",
+            "A driving licence",
+            "Grade 12 again",
+            "There is nothing after AZ-900",
+          ],
+          answer: 0,
+          explain: "AI-900 follows in Module 9; role-based paths like AZ-104 come after the fundamentals.",
         },
       ],
     },
@@ -1185,6 +1517,150 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
   ],
+
+  studyGuide: {
+    asOf: "Skills measured as of July 20, 2026",
+    url: "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+    audience: [
+      "As a candidate for this exam, you're a technology professional who wants to demonstrate foundational knowledge of cloud concepts in general and Microsoft Azure in particular. This exam is a common starting point in a journey towards a career in Azure.",
+      "You can describe Azure architectural components and Azure services, such as compute, networking and storage. You can also describe features and tools to secure, govern, and administer Azure.",
+      "You should have skills and experience working with an area of IT, such as infrastructure management, database management or software development.",
+    ],
+    skillsAtAGlance: [
+      "Describe cloud concepts (25–30%)",
+      "Describe Azure architecture and services (35–40%)",
+      "Describe Azure management and governance (30–35%)",
+    ],
+    areas: [
+      {
+        heading: "Describe cloud concepts (25–30%)",
+        groups: [
+          {
+            heading: "Describe cloud computing",
+            items: [
+              "Define cloud computing",
+              "Describe the shared responsibility model",
+              "Define cloud models, including public, private, and hybrid",
+              "Identify appropriate use cases for each cloud model",
+              "Describe the consumption-based model",
+              "Compare cloud pricing models",
+              "Describe serverless",
+            ],
+          },
+          {
+            heading: "Describe the benefits of using cloud services",
+            items: [
+              "Describe the benefits of high availability and scalability in the cloud",
+              "Describe the benefits of reliability and predictability in the cloud",
+              "Describe the benefits of security and governance in the cloud",
+              "Describe the benefits of manageability in the cloud",
+            ],
+          },
+          {
+            heading: "Describe cloud service types",
+            items: [
+              "Describe infrastructure as a service (IaaS)",
+              "Describe platform as a service (PaaS)",
+              "Describe software as a service (SaaS)",
+              "Identify appropriate use cases for each cloud service type (IaaS, PaaS, and SaaS)",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Describe Azure architecture and services (35–40%)",
+        groups: [
+          {
+            heading: "Describe the core architectural components of Azure",
+            items: [
+              "Describe Azure regions, region pairs, and sovereign regions",
+              "Describe availability zones",
+              "Describe Azure datacenters",
+              "Describe Azure resources and resource groups",
+              "Describe subscriptions",
+              "Describe management groups",
+              "Describe the hierarchy of resource groups, subscriptions, and management groups",
+            ],
+          },
+          {
+            heading: "Describe Azure compute and networking services",
+            items: [
+              "Compare compute types, including containers, virtual machines, and functions",
+              "Describe virtual machine options, including Azure virtual machines, Azure Virtual Machine Scale Sets, availability sets, and Azure Virtual Desktop",
+              "Describe the resources required for virtual machines",
+              "Describe application hosting options, including web apps, containers, and virtual machines",
+              "Describe virtual networking, including the purpose of Azure virtual networks, subnets, peering, Azure DNS, Azure VPN Gateway, and ExpressRoute",
+              "Define public and private endpoints",
+            ],
+          },
+          {
+            heading: "Describe Azure storage services",
+            items: [
+              "Compare Azure Storage services",
+              "Describe storage tiers",
+              "Describe redundancy options",
+              "Describe storage account options and storage types",
+              "Identify options for moving files, including AzCopy, Azure Storage Explorer, and Azure File Sync",
+              "Describe migration options, including Azure Migrate and Azure Data Box",
+            ],
+          },
+          {
+            heading: "Describe Azure identity, access, and security",
+            items: [
+              "Describe directory services in Azure, including Microsoft Entra ID and Microsoft Entra Domain Services",
+              "Describe authentication methods in Azure, including single sign-on (SSO), multifactor authentication (MFA), and passwordless",
+              "Describe external identities in Azure",
+              "Describe Microsoft Entra Conditional Access",
+              "Describe Azure role-based access control (RBAC)",
+              "Describe the concept of Zero Trust",
+              "Describe the purpose of the defense-in-depth model",
+              "Describe the purpose of Microsoft Defender for Cloud",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Describe Azure management and governance (30–35%)",
+        groups: [
+          {
+            heading: "Describe cost management in Azure",
+            items: [
+              "Describe factors that can affect costs in Azure",
+              "Explore the pricing calculator",
+              "Describe cost management capabilities in Azure",
+              "Describe the purpose of tags",
+            ],
+          },
+          {
+            heading: "Describe features and tools in Azure for governance and compliance",
+            items: [
+              "Describe the purpose of Microsoft Purview in Azure",
+              "Describe the purpose of Azure Policy",
+              "Describe the purpose of resource locks",
+            ],
+          },
+          {
+            heading: "Describe features and tools for managing and deploying Azure resources",
+            items: [
+              "Describe the Azure portal",
+              "Describe Azure Cloud Shell, Azure CLI, and Azure PowerShell",
+              "Describe the purpose of Azure Arc",
+              "Describe infrastructure as code (IaC)",
+              "Describe Azure Resource Manager (ARM) and ARM templates",
+            ],
+          },
+          {
+            heading: "Describe monitoring tools in Azure",
+            items: [
+              "Describe the purpose of Azure Advisor",
+              "Describe Azure Service Health",
+              "Describe Azure Monitor, including Log Analytics, Azure Monitor alerts, and Azure Monitor Application Insights",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 
   selfAssessment: {
     intro: [

@@ -1306,6 +1306,31 @@ const ACTIVITY_INFO: Record<UnitActivity, { icon: string; desc: string }> = {
   },
 };
 
+/** Vendor certification courses reuse the same four progress stages (and storage
+ *  keys), but with exam-preparation wording instead of the QCTO wording. */
+const CERT_ACTIVITY_INFO: Record<UnitActivity, { label: string; icon: string; desc: string }> = {
+  "Lesson & Training Aids": {
+    label: "Lessons studied",
+    icon: "presenter",
+    desc: "Work through every lesson section and pass each slide's knowledge check.",
+  },
+  "Formative Assessment": {
+    label: "Exercises completed",
+    icon: "exercise",
+    desc: "Complete the marked exercises on the Exercises tab.",
+  },
+  "Summative Assessment": {
+    label: "Quizzes passed",
+    icon: "clipboard",
+    desc: "Score at least 80% on each skill-area quiz on the Quiz tab.",
+  },
+  "POE Evidence": {
+    label: "Practice assessment & exam booked",
+    icon: "certificate",
+    desc: "Take the official free practice assessment, then schedule the exam with the certification body.",
+  },
+};
+
 export function CoursePage({
   progress,
   navigate,
@@ -2446,14 +2471,15 @@ export function UnitPage({
             <span className="ico">
               <Icon name="checklist" size={20} />
             </span>
-            Learning activities
+            {isCertUnit(u.us) ? "Exam preparation progress" : "Learning activities"}
           </h2>
           <p className="muted" style={{ marginTop: -6, marginBottom: 14 }}>
             Mark each stage as it is completed. Progress is saved to your profile.
           </p>
           {UNIT_ACTIVITIES.map((a) => {
             const done = !!acts[a];
-            const info = ACTIVITY_INFO[a];
+            const cert = isCertUnit(u.us) ? CERT_ACTIVITY_INFO[a] : undefined;
+            const info = cert ?? ACTIVITY_INFO[a];
             return (
               <button
                 key={a}
@@ -2465,7 +2491,7 @@ export function UnitPage({
                   <Icon name={done ? "checkCircle" : "circle"} size={22} />
                 </span>
                 <span style={{ flex: 1 }}>
-                  <span className="t">{a}</span>
+                  <span className="t">{cert ? cert.label : a}</span>
                   <br />
                   <span className="d">
                     <Gloss text={info.desc} />
@@ -2500,6 +2526,98 @@ export function UnitPage({
               </div>
             );
           })()}
+
+          {content?.studyGuide && (
+            <>
+              <h2 className="section-title">
+                <span className="ico">
+                  <Icon name="certificate" size={20} />
+                </span>
+                Official exam study guide
+              </h2>
+              <div className="callout" style={{ marginTop: 0 }}>
+                <span className="ico">
+                  <Icon name="info" size={19} />
+                </span>
+                <span>
+                  {content.studyGuide.asOf}.{" "}
+                  <a href={content.studyGuide.url} target="_blank" rel="noopener noreferrer">
+                    View the official study guide ↗
+                  </a>
+                </span>
+              </div>
+
+              <details className="saqa-details">
+                <summary>
+                  <Icon name="person" size={17} />
+                  Audience profile
+                  <span className="chev">
+                    <Icon name="chevronDown" size={15} />
+                  </span>
+                </summary>
+                <div className="saqa-body">
+                  {content.studyGuide.audience.map((p, i) => (
+                    <p key={i} className="lesson-p">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              </details>
+
+              <details className="saqa-details">
+                <summary>
+                  <Icon name="target" size={17} />
+                  Skills at a glance
+                  <span className="chev">
+                    <Icon name="chevronDown" size={15} />
+                  </span>
+                </summary>
+                <div className="saqa-body">
+                  <ul className="duty-list">
+                    {content.studyGuide.skillsAtAGlance.map((s) => (
+                      <li key={s}>
+                        <span className="ico">
+                          <Icon name="chevronRight" size={14} />
+                        </span>
+                        <span>{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </details>
+
+              {content.studyGuide.areas.map((area) => (
+                <details className="saqa-details" key={area.heading}>
+                  <summary>
+                    <Icon name="checklist" size={17} />
+                    {area.heading}
+                    <span className="chev">
+                      <Icon name="chevronDown" size={15} />
+                    </span>
+                  </summary>
+                  <div className="saqa-body">
+                    {area.groups.map((g) => (
+                      <div key={g.heading}>
+                        <p className="lesson-p" style={{ fontWeight: 600 }}>
+                          {g.heading}
+                        </p>
+                        <ul className="duty-list">
+                          {g.items.map((it) => (
+                            <li key={it}>
+                              <span className="ico">
+                                <Icon name="chevronRight" size={14} />
+                              </span>
+                              <span>{it}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </details>
+              ))}
+            </>
+          )}
 
           {content?.saqa && (
             <>
