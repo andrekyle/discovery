@@ -1407,13 +1407,18 @@ td .with-ico .ico {
   color: var(--azure-darker);
 }
 
-/* first secondary action after the divider: soft filled pill */
+/* first secondary action after the divider: same gradient pill as the CTA */
 .gate-card .divider + .btn.ghost.block {
-  background: var(--azure-light);
+  background: linear-gradient(90deg, #4250de 0%, #36b6ec 100%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 16px;
 }
 
 .gate-card .divider + .btn.ghost.block:hover {
-  background: #e0e4fb;
+  background: linear-gradient(90deg, #3a47c9 0%, #2ea5d9 100%);
+  color: #ffffff;
 }
 
 /* Native select + its dropdown list stay light inside the white card, even
