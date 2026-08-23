@@ -1503,6 +1503,12 @@ td .with-ico .ico {
   background: var(--azure-lighter);
 }
 
+/* no hover highlight on the sign-in profile picker */
+.gate-card .profile-row:hover {
+  border-color: var(--border);
+  background: var(--surface);
+}
+
 .profile-row .nm {
   font-weight: 600;
   font-size: 14px;
