@@ -201,7 +201,7 @@ function headerDefaults(dateIso: string): Record<string, string> {
     credits: String(COURSE_META.credits),
     unitStandards: unitForDate(dateIso),
     type: "Training",
-    client: "Investec",
+    client: "Discovery",
     qualification: `SAQA ${COURSE_META.saqaId}`,
     facilitator: "Andre Snell",
     date: d.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" }),

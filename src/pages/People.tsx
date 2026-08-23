@@ -192,7 +192,7 @@ export function ProfilePage({
         My profile
       </div>
       <h1 className="page-title">My profile</h1>
-      <p className="page-sub">System Support NQF Level 5 Learnership · Investec Group</p>
+      <p className="page-sub">System Support NQF Level 5 Learnership · Discovery Group</p>
 
       <ProfileHead profile={profile} />
 

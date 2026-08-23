@@ -183,7 +183,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
 export const CONTENT: Record<string, UnitContent> = {
   /* ================================================================
      US 8252 — Writing business reports
-     Context: Investec — IT & business support environment
+     Context: Discovery — IT & business support environment
      NQF 5 · 6 credits
      ================================================================ */
   "8252": {
@@ -915,7 +915,7 @@ export const CONTENT: Record<string, UnitContent> = {
       details: [
         { icon: "calendar", label: "Date", value: "Friday, 17 July 2026" },
         { icon: "clock", label: "Time", value: "09:00 \u2013 14:00 · lunch 12:00 \u2013 13:00" },
-        { icon: "globe", label: "Venue", value: "Investec, Sandton, Johannesburg" },
+        { icon: "globe", label: "Venue", value: "Discovery, Sandton, Johannesburg" },
         { icon: "presenter", label: "Facilitator", value: "Andre Snell" },
       ],
       prep: [
@@ -2363,11 +2363,11 @@ export const CONTENT: Record<string, UnitContent> = {
         title: "Questioning — Demonstrate an understanding of criteria for working as a member of a team & Working Autonomously",
         task: "Time: 45 minutes · Activity: Self & Group",
         scenario: [
-          "Your brief — You all work for Investec, on the IT systems support team at the Sandton office. Next month 40 new graduate analysts start, and your team must plan how their workstations, user accounts and first-week IT support will be delivered — without disrupting the business. Working as one project team, you must design the delivery plan, and in doing so practise everything this session teaches about working as a member of a team and working autonomously.",
+          "Your brief — You all work for Discovery, on the IT systems support team at the Sandton office. Next month 40 new graduate analysts start, and your team must plan how their workstations, user accounts and first-week IT support will be delivered — without disrupting the business. Working as one project team, you must design the delivery plan, and in doing so practise everything this session teaches about working as a member of a team and working autonomously.",
           "Groups — The class of twelve splits into three project teams of four. Each team works independently on its own plan; at the end the three plans are compared, and feedback is taken from the groups.",
           "Step 1 — Form the team and agree the roles. Everyone must agree on appropriate roles and everyone must be satisfied in their role: a leader who sets the base agenda, facilitates the discussion and monitors progress, plus supporting roles from the lesson — initiator, recorder, devil's advocate/skeptic, optimist, timekeeper, gate keeper and summarizer. Because there are only four of you and eight roles, some members must take on two roles (for example recorder/summarizer or timekeeper/gate keeper) — agree the combinations together.",
           "Step 2 — Clarify expectations before you start: agree a clear statement of your team's mission, ground rules for participation, each member's responsibilities, and the time line for the task.",
-          "Step 3 — Brainstorm the delivery plan for Investec — for example the workstation build and imaging schedule, account and access requests, a floor-walker roster for the analysts' first week, a mini service desk for their questions, and how the plan will be communicated to the business. Every member gives input, the gate keeper makes sure quiet members are heard, and everyone listens actively and asks questions.",
+          "Step 3 — Brainstorm the delivery plan for Discovery — for example the workstation build and imaging schedule, account and access requests, a floor-walker roster for the analysts' first week, a mini service desk for their questions, and how the plan will be communicated to the business. Every member gives input, the gate keeper makes sure quiet members are heard, and everyone listens actively and asks questions.",
           "Step 4 — Critique each other's ideas the right way: don't express an opinion as a fact, explain your reasons, restate the original idea before responding, compliment what is usable, respond — don't react, don't interrupt, critique the idea and not the person, be courteous, and avoid jargon.",
           "Step 5 — Divide the plan so each member delivers one part autonomously: state what you will do on your own authority, when you will consult the team, and how you will report progress and support the others so the whole plan succeeds.",
           "Step 6 — If the team disagrees, handle it the way the lesson teaches: let each person state their view briefly, focus on the issues and not personalities, seek common ground, and develop an action plan.",
@@ -2381,7 +2381,7 @@ export const CONTENT: Record<string, UnitContent> = {
               "Member 2 — Initiator + optimist: suggests new ideas and keeps a positive frame of mind, facilitating the search for solutions.",
               "Member 3 — Recorder + summarizer: records ideas accurately without editing or evaluating them, and summarises the list of options for decisions.",
               "Member 4 — Devil's advocate/skeptic + timekeeper: looks for potential flaws in each idea and tracks the time spent on each part of the 45 minutes.",
-              "Mission statement: \"Deliver a working, supported IT environment for Investec's 40 new graduate analysts from day one — without disrupting the business.\"",
+              "Mission statement: \"Deliver a working, supported IT environment for Discovery's 40 new graduate analysts from day one — without disrupting the business.\"",
               "Ground rules: everyone speaks on every decision; no criticising statements until all ideas are posted; the team's decisions are agreed by all; the task is time-boxed to 45 minutes.",
             ],
           },
@@ -3512,7 +3512,7 @@ export const CONTENT: Record<string, UnitContent> = {
       details: [
         { icon: "calendar", label: "Date", value: "Friday, 7 August 2026" },
         { icon: "clock", label: "Time", value: "09:00 \u2013 14:00 · lunch 12:00 \u2013 13:00" },
-        { icon: "globe", label: "Venue", value: "Investec, Sandton, Johannesburg" },
+        { icon: "globe", label: "Venue", value: "Discovery, Sandton, Johannesburg" },
         { icon: "presenter", label: "Facilitator", value: "Andre Snell" },
       ],
       prep: [
@@ -4039,7 +4039,7 @@ export const CONTENT: Record<string, UnitContent> = {
         heading: "13. Cloud hardware — the computers behind 'the cloud'",
         icon: "globe",
         paragraphs: [
-          "'The cloud' is not weather — it is other people's data centres, rented over the internet. When Investec runs a workload in Microsoft Azure or AWS, that workload executes on physical servers in a hyperscale data centre: a warehouse-sized facility holding hundreds of thousands of servers, built in standardised halls, where hardware is replaced by the rack rather than the machine. Both Azure and AWS operate cloud regions physically located in Johannesburg (and AWS in Cape Town) — 'the cloud' can be twenty minutes up the M1.",
+          "'The cloud' is not weather — it is other people's data centres, rented over the internet. When Discovery runs a workload in Microsoft Azure or AWS, that workload executes on physical servers in a hyperscale data centre: a warehouse-sized facility holding hundreds of thousands of servers, built in standardised halls, where hardware is replaced by the rack rather than the machine. Both Azure and AWS operate cloud regions physically located in Johannesburg (and AWS in Cape Town) — 'the cloud' can be twenty minutes up the M1.",
           "Cloud providers organise hardware into regions (a metro area) containing availability zones (independent data centres with separate power, cooling and networks) so customers survive a whole-building failure. The magic ingredient is virtualisation: a hypervisor on each physical host slices it into many virtual machines, so one 128-core server safely runs workloads for dozens of customers. When you click 'create VM', no human moves; software finds spare capacity on a host and carves you a slice — hardware as an API.",
           "The AI era has reshaped this hardware: training and running large models needs GPU clusters — racks of accelerator boards (NVIDIA H100-class GPUs, Google TPU pods) joined by ultra-fast InfiniBand networks and increasingly liquid-cooled, drawing so much power that new data centres are planned around electricity supply first. Meanwhile edge and CDN nodes place small clusters close to users so content loads fast, and South Africa reaches the world's clouds through undersea fibre cables — WACS, EASSy, Equiano and 2Africa — the least visible, most important hardware in the country. Someone still racks, cables and repairs all of this: 'data centre technician' is a genuine career path for systems support graduates.",
         ],
@@ -4684,7 +4684,7 @@ export const CONTENT: Record<string, UnitContent> = {
       details: [
         { icon: "calendar", label: "Dates", value: "Wednesday 5 & Thursday 6 August 2026" },
         { icon: "clock", label: "Time", value: "09:00 – 14:00 (both days) · lunch 12:00 – 13:00" },
-        { icon: "globe", label: "Venue", value: "Investec, Sandton, Johannesburg" },
+        { icon: "globe", label: "Venue", value: "Discovery, Sandton, Johannesburg" },
         { icon: "presenter", label: "Facilitator", value: "Andre Snell" },
       ],
       prep: [
@@ -6046,9 +6046,9 @@ export const CONTENT: Record<string, UnitContent> = {
         ],
         examples: [
           {
-            title: "Atomicity — Investec example",
+            title: "Atomicity — Discovery example",
             lines: [
-              "An Investec client transfers R5,000 to another account.",
+              "An Discovery client transfers R5,000 to another account.",
               "R5,000 is deducted from the sender's account.",
               "R5,000 is credited to the receiver's account.",
               "Both actions must happen. If something goes wrong, the transaction is cancelled and the money remains unchanged.",
@@ -6056,9 +6056,9 @@ export const CONTENT: Record<string, UnitContent> = {
             ],
           },
           {
-            title: "Consistency — Investec example",
+            title: "Consistency — Discovery example",
             lines: [
-              "An Investec client transfers R5,000 to another account. The transaction must follow the rules of the system and leave the data correct:",
+              "An Discovery client transfers R5,000 to another account. The transaction must follow the rules of the system and leave the data correct:",
               "1. The sender must have enough money.",
               "2. The correct amount must be deducted.",
               "3. The correct amount must be credited to the receiver.",
@@ -6070,9 +6070,9 @@ export const CONTENT: Record<string, UnitContent> = {
             ],
           },
           {
-            title: "Isolation — Investec example",
+            title: "Isolation — Discovery example",
             lines: [
-              "Two Investec clients make transactions at the same time.",
+              "Two Discovery clients make transactions at the same time.",
               "Client A transfers R5,000.",
               "Client B transfers R2,000.",
               "Each transaction is processed as if it is happening on its own.",
@@ -6081,9 +6081,9 @@ export const CONTENT: Record<string, UnitContent> = {
             ],
           },
           {
-            title: "Durability — Investec example",
+            title: "Durability — Discovery example",
             lines: [
-              "An Investec client transfers R5,000 to another account.",
+              "An Discovery client transfers R5,000 to another account.",
               "The transfer is successfully completed.",
               "The new account balances are saved.",
               "Even if the system later crashes or loses power, the completed transaction is not lost.",
@@ -6102,7 +6102,7 @@ export const CONTENT: Record<string, UnitContent> = {
               "Only one user may work on the system at any moment",
             ],
             answer: 0,
-            explain: "All or nothing: an Investec client transfers R5,000 — the debit from the sender and the credit to the receiver must BOTH happen, or the transaction is cancelled and the money remains unchanged.",
+            explain: "All or nothing: an Discovery client transfers R5,000 — the debit from the sender and the credit to the receiver must BOTH happen, or the transaction is cancelled and the money remains unchanged.",
           },
           {
             q: "Consistency means…",
@@ -8793,7 +8793,7 @@ export const CONTENT: Record<string, UnitContent> = {
       details: [
         { icon: "calendar", label: "Dates", value: "Friday 21 · Thursday 27 August 2026" },
         { icon: "clock", label: "Time", value: "09:00 \u2013 14:00 daily · lunch 12:00 \u2013 13:00" },
-        { icon: "globe", label: "Venue", value: "Investec, Sandton, Johannesburg" },
+        { icon: "globe", label: "Venue", value: "Discovery, Sandton, Johannesburg" },
         { icon: "presenter", label: "Facilitator", value: "Andre Snell" },
       ],
       prep: [
@@ -8879,7 +8879,7 @@ export const CONTENT: Record<string, UnitContent> = {
               time: "30 minutes",
               title: "Lesson 2 (part 2) — Transactions to decisions — Facilitator & Class",
               bullets: [
-                "TPS features and the ACID test with the Investec transfer examples.",
+                "TPS features and the ACID test with the Discovery transfer examples.",
                 "Database structures (hierarchical, network, relational); batch vs on-line processing; KWS; the MIS and the manager's five functions; information sources, flows and levels; structured vs unstructured decisions and the decision stages.",
               ],
               resources: ["Lesson tab — sections 16\u201321", "Lesson 2 slides (.pptx)"],
@@ -10638,7 +10638,7 @@ export const CONTENT: Record<string, UnitContent> = {
       details: [
         { icon: "calendar", label: "Date", value: "Friday, 14 August 2026" },
         { icon: "clock", label: "Time", value: "09:00 \u2013 14:00 · lunch 12:00 \u2013 13:00" },
-        { icon: "globe", label: "Venue", value: "Investec, Sandton, Johannesburg" },
+        { icon: "globe", label: "Venue", value: "Discovery, Sandton, Johannesburg" },
         { icon: "presenter", label: "Facilitator", value: "Andre Snell" },
       ],
       prep: [

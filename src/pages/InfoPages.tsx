@@ -161,7 +161,7 @@ export function ResourcesPage() {
         Resources
       </div>
       <h1 className="page-title">Resources</h1>
-      <p className="page-sub">System Support NQF Level 5 Learnership · Investec Group</p>
+      <p className="page-sub">System Support NQF Level 5 Learnership · Discovery Group</p>
 
       {RESOURCES.map((r) => (
         <a

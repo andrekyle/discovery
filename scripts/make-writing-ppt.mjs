@@ -1,4 +1,4 @@
-// Regenerates US8252-Writing-Business-Reports.pptx in the Investec / Microsoft Learn
+// Regenerates US8252-Writing-Business-Reports.pptx in the Discovery / Microsoft Learn
 // house style used by the other decks — with large, readable fonts and the full text.
 // Run: node scripts/make-writing-ppt.mjs
 import pptxgen from "pptxgenjs";
@@ -48,7 +48,7 @@ const pptx = new pptxgen();
 pptx.defineLayout({ name: "WIDE", width: W, height: H });
 pptx.layout = "WIDE";
 pptx.author = "Andre Snell";
-pptx.company = "Investec — Corporate Banking Technology";
+pptx.company = "Discovery — Corporate Banking Technology";
 pptx.title = "US 8252 — Writing Business Reports";
 
 let pageNo = 0;
@@ -57,7 +57,7 @@ function slide() {
   s.background = { color: WHITE };
   pageNo += 1;
   if (pageNo > 1) {
-    s.addText("Unit Standard 8252 — Writing Business Reports   ·   Investec IT Systems Support NQF 5", {
+    s.addText("Unit Standard 8252 — Writing Business Reports   ·   Discovery IT Systems Support NQF 5", {
       x: MX, y: H - 0.42, w: CW - 1, h: 0.3, fontFace: BODY_FONT, fontSize: 10, color: GREY,
     });
     s.addText(String(pageNo), {
@@ -145,12 +145,12 @@ function dataTable(s, header, rows, { y = 1.75, colW, fontSize = 15.5, rowH = 0.
   s.addText("Writing business reports in Retail/Wholesale practices", {
     x: MX, y: 3.55, w: 10.5, h: 0.55, fontFace: BODY_FONT, fontSize: 21, color: DARK_SUB,
   });
-  s.addText("Official learner guide — Investec Systems Support (NQF Level 5) Learnership", {
+  s.addText("Official learner guide — Discovery Systems Support (NQF Level 5) Learnership", {
     x: MX, y: 4.15, w: 10.5, h: 0.5, fontFace: BODY_FONT, fontSize: 16, color: DARK_LABEL,
   });
   addIcon(s, "document", 10.75, 1.45, 1.9, "#" + DARK_LINE);
   s.addShape(pptx.ShapeType.line, { x: MX, y: 5.15, w: CW, h: 0, line: { color: DARK_LINE, width: 1 } });
-  s.addText("Investec · Corporate Banking Technology · IT Systems Support NQF Level 5 (SAQA ID 48573)", {
+  s.addText("Discovery · Corporate Banking Technology · IT Systems Support NQF Level 5 (SAQA ID 48573)", {
     x: MX, y: H - 0.6, w: CW, h: 0.35, fontFace: BODY_FONT, fontSize: 11.5, color: DARK_MUTED,
   });
 }
@@ -332,11 +332,11 @@ function dataTable(s, header, rows, { y = 1.75, colW, fontSize = 15.5, rowH = 0.
 /* ============================================================ 13 · SAMPLE OVERVIEW */
 {
   const s = slide();
-  eyebrowTitle(s, "Worked examples", "Investec Sample Reports — 7 Worked Models");
+  eyebrowTitle(s, "Worked examples", "Discovery Sample Reports — 7 Worked Models");
   s.addText("Use these models to practise matching report type, purpose, audience and recommended action.", {
     x: MX, y: 1.55, w: CW, h: 0.4, fontFace: BODY_FONT, fontSize: 16, color: GREY,
   });
-  dataTable(s, ["No.", "Report type", "Investec systems support example"], [
+  dataTable(s, ["No.", "Report type", "Discovery systems support example"], [
     ["1", "Incident", "Online Banking login outage — immediate facts, impact, action taken and escalation"],
     ["2", "Incident", "Lost corporate laptop — data risk, containment and compliance notification"],
     ["3", "Investigation", "Repeated VPN disconnections — evidence, root cause and conclusion"],

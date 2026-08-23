@@ -1,5 +1,5 @@
 // Generates the US 114055 learner deck — Ethics & Professionalism for the
-// computer industry in South Africa — in the same Investec / Microsoft Learn
+// computer industry in South Africa — in the same Discovery / Microsoft Learn
 // house style as LearnerManual.pptx. All text comes from the unit's lesson
 // content in src/data/content.ts.
 // Run: node scripts/make-ethics-ppt.mjs
@@ -62,7 +62,7 @@ const pptx = new pptxgen();
 pptx.defineLayout({ name: "WIDE", width: W, height: H });
 pptx.layout = "WIDE";
 pptx.author = "Andre Snell";
-pptx.company = "Investec — Corporate Banking Technology";
+pptx.company = "Discovery — Corporate Banking Technology";
 pptx.title = "US 114055 — Ethics & Professionalism (Learner Manual)";
 
 let pageNo = 0;
@@ -71,7 +71,7 @@ function slide() {
   s.background = { color: WHITE };
   pageNo += 1;
   if (pageNo > 1) {
-    s.addText("Unit Standard 114055 — Ethics & Professionalism   ·   Investec IT Systems Support NQF 5", {
+    s.addText("Unit Standard 114055 — Ethics & Professionalism   ·   Discovery IT Systems Support NQF 5", {
       x: MX, y: H - 0.42, w: CW - 1, h: 0.3, fontFace: BODY_FONT, fontSize: 10, color: GREY,
     });
     s.addText(String(pageNo), {
@@ -166,12 +166,12 @@ function numberedActivity(s, items, { y = 1.8, rowH = 0.82, fontSize = 17 } = {}
   s.addText("Demonstrate an awareness of ethics and professionalism for the computer industry in South Africa", {
     x: MX, y: 3.55, w: 10.5, h: 0.85, fontFace: BODY_FONT, fontSize: 21, color: DARK_SUB,
   });
-  s.addText("Official learner guide — Investec Systems Support (NQF Level 5) Learnership", {
+  s.addText("Official learner guide — Discovery Systems Support (NQF Level 5) Learnership", {
     x: MX, y: 4.45, w: 10.5, h: 0.5, fontFace: BODY_FONT, fontSize: 16, color: DARK_LABEL,
   });
   addIcon(s, "shield", 10.75, 1.45, 1.9, "#" + DARK_LINE);
   s.addShape(pptx.ShapeType.line, { x: MX, y: 5.35, w: CW, h: 0, line: { color: DARK_LINE, width: 1 } });
-  s.addText("Investec · Corporate Banking Technology · IT Systems Support NQF Level 5 (SAQA ID 48573)", {
+  s.addText("Discovery · Corporate Banking Technology · IT Systems Support NQF Level 5 (SAQA ID 48573)", {
     x: MX, y: H - 0.6, w: CW, h: 0.35, fontFace: BODY_FONT, fontSize: 11.5, color: DARK_MUTED,
   });
 }
