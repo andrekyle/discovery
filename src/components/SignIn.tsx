@@ -414,7 +414,6 @@ export function SignIn({ onSignIn }: { onSignIn: (p: Profile) => void }) {
             {cloudEnabled && (
               <button
                 className="btn ghost block"
-                style={{ marginTop: 8 }}
                 onClick={() => void supabase?.auth.signOut()}
               >
                 <Icon name="signout" size={17} />
