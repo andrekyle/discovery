@@ -403,8 +403,8 @@ export function ProgressPage({
                       )}
                     </td>
                     <td>{u.title}</td>
-                    <td>{u.nqf}</td>
-                    <td>{u.credits}</td>
+                    <td>{u.nqf > 0 ? u.nqf : "—"}</td>
+                    <td>{u.credits > 0 ? u.credits : "—"}</td>
                     <td>
                       {st === "completed" && (
                         <span className="chip done">

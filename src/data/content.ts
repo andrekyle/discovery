@@ -1,4 +1,5 @@
 import type { UnitContent } from "../types";
+import { CERT_CONTENT } from "./certContent";
 
 /** Illustrates the water-supply analogy used in the PSU "matching" quiz question.
  * Deliberately shows ONLY the analogy side (river → treatment plant → pipes → city
@@ -15321,5 +15322,5 @@ export const CONTENT: Record<string, UnitContent> = {
 };
 
 export function getContent(us: string): UnitContent | undefined {
-  return CONTENT[us];
+  return CONTENT[us] ?? CERT_CONTENT[us];
 }

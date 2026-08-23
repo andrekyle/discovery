@@ -3,7 +3,7 @@ import React from "react";
 import { Icon } from "../icons";
 import type { ExerciseCheck, LessonFigure, PoeDoc, ProgressState, Profile, Role, Route, UnitActivity, UnitStandard } from "../types";
 import { UNIT_ACTIVITIES, isStaff } from "../types";
-import { COURSE_META, MODULES, MODULE_FLOW, PROGRAMME_ABOUT, PROGRAMME_PURPOSE, TOTAL_UNITS, WHAT_YOULL_LEARN, findModule, findUnit, isSaqaUnit, usLabel } from "../data/course";
+import { COURSE_META, MODULES, MODULE_FLOW, PROGRAMME_ABOUT, PROGRAMME_PURPOSE, TOTAL_UNITS, WHAT_YOULL_LEARN, findModule, findUnit, isCertUnit, isSaqaUnit, usLabel } from "../data/course";
 import { GLOSSARY, getContent } from "../data/content";
 import { FIGURE_DEFAULTS as BASE_FIGURE_DEFAULTS } from "../data/figureDefaults";
 import { HWSW_SLIDE_FIGURES } from "../data/hwswSlideFigures";
@@ -1396,7 +1396,8 @@ export function CoursePage({
                 </div>
               </div>
               <span className="sub module-sub">
-                {m.units.length} unit standards · {credits} credits · {m.activities} activities
+                {m.units.length} {isCertUnit(m.units[0].us) ? (m.units.length === 1 ? "course" : "courses") : "unit standards"}
+                {credits > 0 ? ` · ${credits} credits` : ""} · {m.activities} activities
               </span>
               <div className="bar-row">
                 <Bar value={c} green={c === 1} />
@@ -1430,7 +1431,7 @@ export function CoursePage({
         <div className="flow-after">
           <Icon name="award" size={22} />
           <span>
-            After all six modules: <strong>Remedials</strong> (if needed) →{" "}
+            After the six System Support modules: <strong>Remedials</strong> (if needed) →{" "}
             <strong>
               <Gloss text="FISA" />
             </strong>{" "}
@@ -1604,14 +1605,16 @@ export function ModulePage({
           <span className="ico">
             <Icon name="book" size={15} />
           </span>
-          {mod.units.length} unit standards
+          {mod.units.length} {isCertUnit(mod.units[0].us) ? (mod.units.length === 1 ? "course" : "courses") : "unit standards"}
         </span>
-        <span className="pill">
-          <span className="ico">
-            <Icon name="award" size={15} />
+        {credits > 0 && (
+          <span className="pill">
+            <span className="ico">
+              <Icon name="award" size={15} />
+            </span>
+            {credits} credits
           </span>
-          {credits} credits
-        </span>
+        )}
         <span className="pill">
           <span className="ico">
             <Icon name="exercise" size={15} />
@@ -1654,9 +1657,11 @@ export function ModulePage({
                 {usLabel(u.us)} — {u.title}
               </span>
               <span className="m">
-                <span>
-                  <Icon name="trend" size={13} /> NQF {u.nqf}
-                </span>
+                {u.nqf > 0 && (
+                  <span>
+                    <Icon name="trend" size={13} /> NQF {u.nqf}
+                  </span>
+                )}
                 {u.credits > 0 && (
                   <span>
                     <Icon name="award" size={13} /> {u.credits} credits
@@ -2369,7 +2374,7 @@ export function UnitPage({
 
       <div className="eyebrow eyebrow-lg">
         <Icon name="document" size={22} />
-        {isSaqaUnit(u.us) ? `Unit standard ${u.us}` : "Internal lesson"}
+        {isSaqaUnit(u.us) ? `Unit standard ${u.us}` : isCertUnit(u.us) ? "Certification course" : "Internal lesson"}
       </div>
       <h1 className="page-title">{u.title}</h1>
       <div className="meta-row">
@@ -2377,7 +2382,7 @@ export function UnitPage({
           <span className="ico">
             <Icon name="trend" size={15} />
           </span>
-          NQF Level {u.nqf}
+          {u.nqf > 0 ? `NQF Level ${u.nqf}` : "Vendor certification"}
         </span>
         {u.credits > 0 && (
           <span className="pill">
@@ -2489,7 +2494,7 @@ export function UnitPage({
                   <Icon name="book" size={19} />
                 </span>
                 <span>
-                  This unit standard has full learning material: {text}. Use the tabs above to work
+                  This {isCertUnit(u.us) ? "course" : "unit standard"} has full learning material: {text}. Use the tabs above to work
                   through it.
                 </span>
               </div>
@@ -2588,14 +2593,27 @@ export function UnitPage({
             </>
           )}
 
-          <div className="callout">
-            <span className="ico">
-              <Icon name="info" size={19} />
-            </span>
-            <span>
-              <Gloss text="Assessments for this unit standard are conducted in line with QCTO, SETA and institutional requirements, and must be valid, reliable, fair and aligned with the OCD and ASD for SAQA ID 48573. Constructive feedback is provided after each assessment." />
-            </span>
-          </div>
+          {isCertUnit(u.us) ? (
+            <div className="callout">
+              <span className="ico">
+                <Icon name="info" size={19} />
+              </span>
+              <span>
+                This is a vendor certification course offered alongside the National Certificate. The final
+                exam is written with the certification body (Pearson VUE / Oracle) — use the syllabus on the
+                Lesson tab to prepare, and the quiz to check your knowledge.
+              </span>
+            </div>
+          ) : (
+            <div className="callout">
+              <span className="ico">
+                <Icon name="info" size={19} />
+              </span>
+              <span>
+                <Gloss text="Assessments for this unit standard are conducted in line with QCTO, SETA and institutional requirements, and must be valid, reliable, fair and aligned with the OCD and ASD for SAQA ID 48573. Constructive feedback is provided after each assessment." />
+              </span>
+            </div>
+          )}
         </>
       )}
 

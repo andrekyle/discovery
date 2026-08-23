@@ -84,6 +84,52 @@ export const MODULES: CourseModule[] = [
       { us: "114069", title: "Administer security systems for a multi-user computer system", nqf: 6, credits: 15, dates: "9, 16, 23, 30 Apr, 7 May 2027", time: "09h00 - 14h00" },
     ],
   },
+  {
+    id: "m7",
+    name: "PCAP™ – Certified Associate in Python Programming",
+    icon: "chip",
+    activities: 3,
+    units: [
+      { us: "PCAP", title: "PCAP™ – Certified Associate in Python Programming (Python Institute, exam PCAP-31-03)", nqf: 0, credits: 0, dates: "2, 9, 16 Sep 2026", time: "09h00 - 14h00" },
+    ],
+  },
+  {
+    id: "m8",
+    name: "Microsoft Certified: Azure Fundamentals (AZ-900)",
+    icon: "layers",
+    activities: 3,
+    units: [
+      { us: "AZ-900", title: "Microsoft Certified: Azure Fundamentals (exam AZ-900)", nqf: 0, credits: 0, dates: "7, 14 Oct 2026", time: "09h00 - 14h00" },
+    ],
+  },
+  {
+    id: "m9",
+    name: "Microsoft Certified: Azure AI Fundamentals (AI-900)",
+    icon: "target",
+    activities: 3,
+    units: [
+      { us: "AI-900", title: "Microsoft Certified: Azure AI Fundamentals (exam AI-900)", nqf: 0, credits: 0, dates: "4, 11 Nov 2026", time: "09h00 - 14h00" },
+    ],
+  },
+  {
+    id: "m10",
+    name: "Oracle Java SE 8 Programmer I (1Z0-808)",
+    icon: "award",
+    activities: 3,
+    units: [
+      { us: "1Z0-808", title: "Java SE 8 Programmer I (Oracle, exam 1Z0-808)", nqf: 0, credits: 0, dates: "2, 9, 16 Dec 2026", time: "09h00 - 14h00" },
+    ],
+  },
+  {
+    id: "m11",
+    name: "Microsoft Office & Azure SQL",
+    icon: "monitor",
+    activities: 4,
+    units: [
+      { us: "OFFICE", title: "Microsoft Office: Word & Excel essentials", nqf: 0, credits: 0, dates: "13, 20 Jan 2027", time: "09h00 - 14h00" },
+      { us: "AZ-SQL", title: "Microsoft Azure SQL for Beginners", nqf: 0, credits: 0, dates: "10, 17 Feb 2027", time: "09h00 - 14h00" },
+    ],
+  },
 ];
 
 export const PROGRAMME_ABOUT = {
@@ -168,6 +214,7 @@ export const WHAT_YOULL_LEARN = {
     { icon: "monitor", text: "Desktop Infrastructure Implementation", desc: "Build, install and support networked workstations and the desktop environment." },
     { icon: "dashboard", text: "Desktop Application Environment Implementation", desc: "Deploy, support and maintain end-user applications across the organisation." },
     { icon: "document", text: "Enterprise Development", desc: "LAN design for departmental offices, enterprise systems management and SQL database access." },
+    { icon: "certificate", text: "Microsoft & Oracle Certifications", desc: "PCAP Python programming, Azure Fundamentals (AZ-900), Azure AI Fundamentals (AI-900), Java SE 8 (1Z0-808), Word & Excel, and Azure SQL." },
   ],
   facts: [
     { icon: "award", label: "Qualification level", value: "NQF Level 5", detail: "148 credits · SAQA ID 48573" },
@@ -413,6 +460,13 @@ export function findUnit(us: string) {
 /** True for registered SAQA unit standards (numeric codes); false for internal lessons like HWSW. */
 export function isSaqaUnit(us: string) {
   return /^\d+$/.test(us);
+}
+
+const CERT_UNIT_CODES = new Set(["PCAP", "AZ-900", "AI-900", "1Z0-808", "OFFICE", "AZ-SQL"]);
+
+/** Vendor certification courses (Python Institute / Microsoft / Oracle) — separate from the SAQA qualification. */
+export function isCertUnit(us: string) {
+  return CERT_UNIT_CODES.has(us);
 }
 
 /** Display label for a unit code — "US 8252" for registered standards, the plain code for internal lessons. */
