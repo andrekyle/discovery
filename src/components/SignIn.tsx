@@ -395,7 +395,6 @@ export function SignIn({ onSignIn }: { onSignIn: (p: Profile) => void }) {
                 <button
                   type="button"
                   className="profile-row-remove"
-                  title="Remove from this device"
                   aria-label={`Remove ${p.name} from this device`}
                   onClick={(e) => {
                     e.stopPropagation();
