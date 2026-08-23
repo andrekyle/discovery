@@ -1,9 +1,11 @@
 import type { UnitContent } from "../types";
+import { AZ900_CONTENT } from "./az900";
 
 /**
  * Vendor certification courses (Python Institute, Microsoft, Oracle) offered
  * alongside the National Certificate. Each unit carries the official exam
- * syllabus as its lesson, plus a short knowledge check.
+ * syllabus as its lesson, plus a knowledge check. AZ-900 has a full course
+ * (lessons, exercises, quizzes and self assessment) in ./az900.ts.
  */
 export const CERT_CONTENT: Record<string, UnitContent> = {
   /* ================= PCAP — Certified Associate in Python Programming ================= */
@@ -150,112 +152,9 @@ export const CERT_CONTENT: Record<string, UnitContent> = {
     ],
   },
 
-  /* ================= AZ-900 — Microsoft Azure Fundamentals ================= */
-  "AZ-900": {
-    lesson: [
-      {
-        heading: "About this certification",
-        icon: "info",
-        flat: true,
-        paragraphs: [
-          "Microsoft Certified: Azure Fundamentals validates foundational knowledge of cloud concepts and Microsoft Azure — how the cloud works, the core services Azure offers, and how Azure is managed and governed. It suits both technical and non-technical people starting their cloud journey.",
-          "Official certification page and study guide: https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/",
-        ],
-        table: {
-          headers: ["Exam at a glance", "Detail"],
-          rows: [
-            ["Exam code", "AZ-900"],
-            ["Questions", "±40–60 (multiple choice / multiple select)"],
-            ["Duration", "45 minutes"],
-            ["Passing score", "700 / 1000"],
-            ["Delivery", "Pearson VUE test centres / online proctored"],
-            ["Prerequisites", "None"],
-          ],
-        },
-      },
-      {
-        heading: "Skill area 1: Describe cloud concepts — 25–30% of the exam",
-        icon: "globe",
-        paragraphs: ["What cloud computing is and why organisations use it."],
-        bullets: [
-          "Define cloud computing and the shared responsibility model",
-          "Cloud models: public, private and hybrid — and when each is appropriate",
-          "The consumption-based model and cloud pricing models",
-          "Benefits: high availability, scalability, reliability, predictability, security, governance and manageability",
-          "Service types: IaaS, PaaS and SaaS — with appropriate use cases for each",
-        ],
-      },
-      {
-        heading: "Skill area 2: Describe Azure architecture and services — 35–40% of the exam",
-        icon: "server",
-        paragraphs: ["The building blocks of Azure and its core service families."],
-        bullets: [
-          "Core components: regions, region pairs, sovereign regions, availability zones, datacenters",
-          "Resources, resource groups, subscriptions and management groups",
-          "Compute: virtual machines, VM scale sets, containers, Azure Functions, App Service, Azure Virtual Desktop",
-          "Networking: virtual networks, subnets, peering, VPN Gateway, ExpressRoute, DNS, public and private endpoints",
-          "Storage: Blob, Disk and File storage; tiers, redundancy options; AzCopy, Storage Explorer, File Sync; Azure Migrate and Data Box",
-          "Identity, access and security: Microsoft Entra ID, MFA, SSO, external identities, Conditional Access, RBAC, Zero Trust, defence-in-depth, Microsoft Defender for Cloud",
-        ],
-      },
-      {
-        heading: "Skill area 3: Describe Azure management and governance — 30–35% of the exam",
-        icon: "clipboard",
-        paragraphs: ["Controlling cost, enforcing standards and operating Azure day to day."],
-        bullets: [
-          "Factors that affect cost; the Pricing and Total Cost of Ownership (TCO) calculators; Microsoft Cost Management; tags",
-          "Governance and compliance: Azure Policy, resource locks, Microsoft Purview, the Service Trust portal",
-          "Managing resources: Azure portal, Cloud Shell, Azure CLI, Azure PowerShell, Azure Arc",
-          "Infrastructure as Code and ARM templates",
-          "Monitoring: Azure Advisor, Azure Service Health, Azure Monitor (Log Analytics, alerts, Application Insights)",
-        ],
-      },
-    ],
-    exercises: [],
-    assignments: [],
-    quiz: [
-      {
-        q: "Azure SQL Database — where you manage the data but Microsoft manages the OS and infrastructure — is an example of…",
-        options: ["IaaS", "PaaS", "SaaS", "On-premises"],
-        answer: 1,
-        explain: "Platform as a Service: you bring the data/app; the platform, patching and infrastructure are managed for you.",
-      },
-      {
-        q: "Which cloud model combines on-premises infrastructure with public cloud services?",
-        options: ["Public", "Private", "Hybrid", "Community"],
-        answer: 2,
-        explain: "A hybrid cloud joins private/on-premises resources with public cloud services.",
-      },
-      {
-        q: "Availability zones primarily protect applications against…",
-        options: [
-          "A whole geography failing",
-          "Datacenter-level failures within a region",
-          "Subscription overspend",
-          "Weak passwords",
-        ],
-        answer: 1,
-        explain: "Zones are physically separate datacenters inside one region — an outage in one zone leaves the others running.",
-      },
-      {
-        q: "Which tool estimates the monthly cost of Azure services before you deploy them?",
-        options: ["Azure Advisor", "The Pricing calculator", "Azure Monitor", "Service Health"],
-        answer: 1,
-        explain: "The Pricing calculator models the monthly cost of a planned architecture; the TCO calculator compares on-prem vs cloud.",
-      },
-      {
-        q: "Role-Based Access Control (RBAC) is used to…",
-        options: [
-          "Encrypt data at rest",
-          "Grant users only the access they need to Azure resources",
-          "Speed up virtual machines",
-          "Pair Azure regions",
-        ],
-        answer: 1,
-        explain: "RBAC assigns roles at a scope (subscription, resource group, resource) to enforce least privilege.",
-      },
-    ],
-  },
+  /* ================= AZ-900 - Microsoft Azure Fundamentals =================
+     Full course content lives in ./az900.ts */
+  "AZ-900": AZ900_CONTENT,
 
   /* ================= AI-900 — Microsoft Azure AI Fundamentals ================= */
   "AI-900": {

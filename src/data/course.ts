@@ -97,7 +97,7 @@ export const MODULES: CourseModule[] = [
     id: "m8",
     name: "Microsoft Certified: Azure Fundamentals (AZ-900)",
     icon: "layers",
-    activities: 3,
+    activities: 5,
     units: [
       { us: "AZ-900", title: "Microsoft Certified: Azure Fundamentals (exam AZ-900)", nqf: 0, credits: 0, dates: "7, 14 Oct 2026", time: "09h00 - 14h00" },
     ],
