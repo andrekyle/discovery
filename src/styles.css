@@ -4510,9 +4510,7 @@ a.plan-ppt:hover {
 .lesson-figure img {
   display: block;
   width: 100%;
-  max-height: 340px;
-  object-fit: contain;
-  background: var(--surface-2);
+  height: auto;
 }
 
 .lesson-figure figcaption {
@@ -5849,9 +5847,6 @@ a.plan-ppt:hover {
 }
 .lesson-screen .figure-grid:has(> :only-child) {
   grid-template-columns: 1fr;
-}
-.lesson-screen .figure-grid:has(> :only-child) .lesson-figure img {
-  max-height: 460px;
 }
 .lesson-screen .lesson-figure {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
@@ -7604,17 +7599,14 @@ input.att-sig {
   padding: 0;
   border: 1px solid var(--border, #d0d7de);
   border-radius: 14px;
-  background: #0b1220;
+  background: var(--surface);
   overflow: hidden;
   cursor: zoom-in;
-  aspect-ratio: 16 / 10;
 }
 .lesson-slide-figure img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: #0b1220;
+  height: auto;
 }
 .lesson-slide-zoom {
   position: absolute;
@@ -7659,7 +7651,6 @@ input.att-sig {
 }
 @media (max-width: 900px) {
   .lesson-slide { grid-template-columns: 1fr; }
-  .lesson-slide-figure { aspect-ratio: 16 / 10; }
 }
 
 /* per-slide quiz below the slide bullets */
