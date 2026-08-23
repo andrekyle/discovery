@@ -1563,6 +1563,18 @@ td .with-ico .ico {
   resize: vertical;
 }
 
+/* custom Select used as a form field: match the sizing of .field inputs */
+.field .nice-select {
+  width: 100%;
+  display: flex;
+}
+
+.field .nice-select-btn {
+  padding: 8px 10px;
+  font-size: 14px;
+  border-color: var(--border-2);
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
