@@ -1503,10 +1503,20 @@ td .with-ico .ico {
   background: var(--azure-lighter);
 }
 
-/* no hover highlight on the sign-in profile picker */
+/* flat, borderless rows on the sign-in profile picker */
+.gate-card .profile-row {
+  border: none;
+}
+
 .gate-card .profile-row:hover {
-  border-color: var(--border);
+  border-color: transparent;
   background: var(--surface);
+}
+
+/* keep the remove (×) button flat too — no hover chip */
+.gate-card .profile-row-remove:hover {
+  background: transparent;
+  color: var(--ink);
 }
 
 .profile-row .nm {
