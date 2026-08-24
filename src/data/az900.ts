@@ -14,7 +14,7 @@ export const AZ900_CONTENT: UnitContent = {
       heading: "Welcome to Azure Fundamentals — what this course covers",
       icon: "presenter",
       flat: true,
-      lessonStart: { n: 1, title: "Describe cloud concepts (25–30% of the exam)" },
+      lessonStart: { n: 1, title: "1. Describe cloud concepts (25–30%)" },
       paragraphs: [
         "Microsoft Certified: Azure Fundamentals (exam AZ-900) proves you understand cloud concepts, the core services Microsoft Azure offers, and how Azure is managed and governed. It is Microsoft's entry-level cloud certification — there are no prerequisites, and it suits technical and non-technical learners alike.",
         "Audience profile: as a candidate for this exam, you're a technology professional who wants to demonstrate foundational knowledge of cloud concepts in general and Microsoft Azure in particular. This exam is a common starting point in a journey towards a career in Azure. You should have skills and experience working with an area of IT, such as infrastructure management, database management or software development.",
@@ -80,7 +80,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "What is cloud computing?",
+      heading: "1.1.1 Define cloud computing",
       icon: "globe",
       flat: true,
       paragraphs: [
@@ -153,7 +153,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "The shared responsibility model",
+      heading: "1.1.2 Describe the shared responsibility model",
       icon: "shield",
       flat: true,
       paragraphs: [
@@ -222,7 +222,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "Cloud models: public, private and hybrid",
+      heading: "1.1.3–1.1.4 Cloud models and their use cases: public, private and hybrid",
       icon: "layers",
       flat: true,
       paragraphs: [
@@ -283,7 +283,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "The consumption-based model — pricing models and serverless",
+      heading: "1.1.5–1.1.7 The consumption-based model, pricing models and serverless",
       icon: "trend",
       flat: true,
       paragraphs: [
@@ -351,7 +351,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "Benefits of the cloud — availability, scalability, elasticity",
+      heading: "1.2.1 Benefits: high availability, scalability and elasticity",
       icon: "checkCircle",
       flat: true,
       paragraphs: [
@@ -415,7 +415,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "Benefits of the cloud — reliability, predictability, security, governance and manageability",
+      heading: "1.2.2–1.2.4 Benefits: reliability, predictability, security, governance and manageability",
       icon: "award",
       flat: true,
       paragraphs: [
@@ -481,7 +481,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "Cloud service types: IaaS, PaaS and SaaS",
+      heading: "1.3 Cloud service types: IaaS, PaaS and SaaS",
       icon: "server",
       flat: true,
       paragraphs: [
@@ -537,10 +537,10 @@ export const AZ900_CONTENT: UnitContent = {
 
     /* ============ LESSON 2 — AZURE ARCHITECTURE AND SERVICES (35–40%) ============ */
     {
-      heading: "Azure's physical infrastructure: datacenters, regions and availability zones",
+      heading: "2.1.1–2.1.3 Regions, region pairs, sovereign regions, availability zones and datacenters",
       icon: "globe",
       flat: true,
-      lessonStart: { n: 2, title: "Describe Azure architecture and services (35–40% of the exam)" },
+      lessonStart: { n: 2, title: "2. Describe Azure architecture and services (35–40%)" },
       paragraphs: [
         "Azure's foundation is physical: datacenters around the world — facilities with racks of servers, independent power, cooling and networking. You never rent 'a datacenter' directly; they are grouped for resilience and availability.",
         "A region is a geographical area containing at least one (usually several) datacenters networked together with low-latency links. You choose a region when you deploy most resources — for example South Africa North (Johannesburg), which brings services close to South African users and helps meet data-residency requirements.",
@@ -601,7 +601,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "Organising your cloud: resources, resource groups, subscriptions and management groups",
+      heading: "2.1.4–2.1.7 Resources, resource groups, subscriptions and management groups",
       icon: "layers",
       flat: true,
       paragraphs: [
@@ -673,7 +673,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "Azure compute services",
+      heading: "2.2.1–2.2.4 Azure compute: types, VM options, VM resources and app hosting",
       icon: "server",
       flat: true,
       paragraphs: [
@@ -752,7 +752,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "Azure networking services",
+      heading: "2.2.5–2.2.6 Azure virtual networking and endpoints",
       icon: "network",
       flat: true,
       paragraphs: [
@@ -811,7 +811,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "Azure storage services",
+      heading: "2.3 Azure storage services",
       icon: "database",
       flat: true,
       paragraphs: [
@@ -878,7 +878,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "Identity, access and security",
+      heading: "2.4 Identity, access and security",
       icon: "shield",
       flat: true,
       paragraphs: [
@@ -936,10 +936,10 @@ export const AZ900_CONTENT: UnitContent = {
 
     /* ============ LESSON 3 — MANAGEMENT AND GOVERNANCE (30–35%) ============ */
     {
-      heading: "Cost management in Azure",
+      heading: "3.1 Cost management in Azure",
       icon: "chart",
       flat: true,
-      lessonStart: { n: 3, title: "Describe Azure management and governance (30–35% of the exam)" },
+      lessonStart: { n: 3, title: "3. Describe Azure management and governance (30–35%)" },
       paragraphs: [
         "What affects cost in Azure? Resource type (a big VM costs more than a small one; premium storage more than standard), consumption (pay-as-you-go usage — or savings plans and reserved capacity for predictable workloads, which can cut costs substantially), maintenance (idle resources still bill — deallocate or delete what you don't use), geography (prices differ by region), network traffic (inbound is generally free; outbound bandwidth between regions and to the internet is billed), and subscription type (free trial, pay-as-you-go, enterprise agreements have different terms).",
         "The Pricing calculator estimates the monthly cost of a solution you are planning — pick services, sizes and regions and get a shareable estimate before you deploy anything.",
@@ -994,7 +994,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "Governance and compliance: Policy, locks and the Service Trust Portal",
+      heading: "3.2 Governance and compliance: Purview, Policy and resource locks",
       icon: "checklist",
       flat: true,
       paragraphs: [
@@ -1040,7 +1040,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "Tools for managing and deploying Azure resources",
+      heading: "3.3 Managing and deploying Azure resources",
       icon: "wrench",
       flat: true,
       paragraphs: [
@@ -1097,7 +1097,7 @@ export const AZ900_CONTENT: UnitContent = {
       ],
     },
     {
-      heading: "Monitoring: Advisor, Service Health and Azure Monitor",
+      heading: "3.4 Monitoring: Advisor, Service Health and Azure Monitor",
       icon: "monitor",
       flat: true,
       paragraphs: [
