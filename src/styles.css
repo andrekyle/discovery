@@ -1068,6 +1068,25 @@ td .with-ico .ico {
   white-space: nowrap;
 }
 
+/* study-guide rows/headings link to the covering slide — pointer, no underline */
+.guide-row {
+  cursor: pointer;
+}
+
+.guide-row:hover td {
+  background: var(--azure-lighter);
+  color: var(--ink);
+}
+
+.guide-group {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.guide-group:hover {
+  color: var(--azure);
+}
+
 .callout {
   display: flex;
   gap: 12px;

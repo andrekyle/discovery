@@ -2414,6 +2414,41 @@ export function UnitPage({
     }
   }
 
+  /** Find the lesson slide whose heading number/range covers a study-guide
+   *  number like "1.1.5", "1.1" or "2" (slide headings carry their numbers,
+   *  e.g. "1.1.5–1.1.7 The consumption-based model…"). */
+  const slideForGuideNum = (target: string): number | null => {
+    if (!content) return null;
+    const t = target.split(".").map(Number);
+    for (let i = 0; i < content.lesson.length; i++) {
+      const m = content.lesson[i].heading.match(/^(\d+(?:\.\d+)*)(?:\s*[–—-]\s*(\d+(?:\.\d+)*))?\s/);
+      if (!m) continue;
+      const start = m[1].split(".").map(Number);
+      const end = m[2] ? m[2].split(".").map(Number) : null;
+      // slide number covers the target (e.g. heading "1.3" covers "1.3.2")
+      if (!end && start.length <= t.length && start.every((n, k) => n === t[k])) return i;
+      // target covers the slide number (e.g. target "1.1" or "1" → first matching slide)
+      if (t.length < start.length && t.every((n, k) => n === start[k])) return i;
+      if (end) {
+        // range slide (e.g. "1.1.5–1.1.7"): same prefix, segment within range
+        const pre = start.slice(0, -1);
+        const samePre = t.length >= start.length && pre.every((n, k) => n === t[k]);
+        const seg = t[start.length - 1];
+        if (samePre && seg >= start[start.length - 1] && seg <= end[end.length - 1]) return i;
+      }
+    }
+    return null;
+  };
+
+  /** Jump from the study-guide outline to the slide covering that number. */
+  const jumpToGuideNum = (target: string) => {
+    const idx = slideForGuideNum(target);
+    if (idx == null) return;
+    setLessonStep(idx);
+    setTab("lesson");
+    document.querySelector(".content")?.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const tabs: { id: UnitTab; label: string; icon: string; show: boolean }[] = [
     { id: "overview", label: "Overview", icon: "dashboard", show: true },
     { id: "lesson", label: "Lesson", icon: "book", show: !!content?.lesson.length },
@@ -2620,7 +2655,12 @@ export function UnitPage({
                   <table className="guide-table">
                     <tbody>
                       {content.studyGuide.skillsAtAGlance.map((s, si) => (
-                        <tr key={s}>
+                        <tr
+                          key={s}
+                          className="guide-row"
+                          title="Open the lesson covering this skill area"
+                          onClick={() => jumpToGuideNum(String(si + 1))}
+                        >
                           <td className="num">{si + 1}</td>
                           <td>{s}</td>
                         </tr>
@@ -2642,13 +2682,22 @@ export function UnitPage({
                   <div className="saqa-body">
                     {area.groups.map((g, gi) => (
                       <div key={g.heading}>
-                        <p className="lesson-p" style={{ fontWeight: 600 }}>
+                        <p
+                          className="lesson-p guide-group"
+                          title="Open the slide covering this topic"
+                          onClick={() => jumpToGuideNum(`${ai + 1}.${gi + 1}`)}
+                        >
                           {ai + 1}.{gi + 1} {g.heading}
                         </p>
                         <table className="guide-table">
                           <tbody>
                             {g.items.map((it, ii) => (
-                              <tr key={it}>
+                              <tr
+                                key={it}
+                                className="guide-row"
+                                title="Open the slide covering this skill"
+                                onClick={() => jumpToGuideNum(`${ai + 1}.${gi + 1}.${ii + 1}`)}
+                              >
                                 <td className="num">
                                   {ai + 1}.{gi + 1}.{ii + 1}
                                 </td>
