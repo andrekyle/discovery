@@ -2617,14 +2617,11 @@ export function UnitPage({
                   </span>
                 </summary>
                 <div className="saqa-body">
-                  <ul className="duty-list">
+                  <ul className="duty-list guide-list">
                     {content.studyGuide.skillsAtAGlance.map((s, si) => (
                       <li key={s}>
-                        <span className="ico">
-                          <Icon name="chevronRight" size={14} />
-                        </span>
                         <span>
-                          <strong>{si + 1}.</strong> {s}
+                          {si + 1}. {s}
                         </span>
                       </li>
                     ))}
@@ -2647,17 +2644,11 @@ export function UnitPage({
                         <p className="lesson-p" style={{ fontWeight: 600 }}>
                           {ai + 1}.{gi + 1} {g.heading}
                         </p>
-                        <ul className="duty-list">
+                        <ul className="duty-list guide-list">
                           {g.items.map((it, ii) => (
                             <li key={it}>
-                              <span className="ico">
-                                <Icon name="chevronRight" size={14} />
-                              </span>
                               <span>
-                                <strong>
-                                  {ai + 1}.{gi + 1}.{ii + 1}
-                                </strong>{" "}
-                                {it}
+                                {ai + 1}.{gi + 1}.{ii + 1} {it}
                               </span>
                             </li>
                           ))}
