@@ -1046,6 +1046,28 @@ td .with-ico .ico {
   font-weight: 600;
 }
 
+/* Study-guide outline table: number column + text column, very light borders */
+.guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2px 0 14px;
+}
+
+.guide-table td {
+  border: 1px solid var(--table-line);
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  text-align: left;
+  vertical-align: top;
+}
+
+.guide-table td.num {
+  width: 72px;
+  white-space: nowrap;
+}
+
 .callout {
   display: flex;
   gap: 12px;

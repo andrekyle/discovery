@@ -2617,15 +2617,16 @@ export function UnitPage({
                   </span>
                 </summary>
                 <div className="saqa-body">
-                  <ul className="duty-list guide-list">
-                    {content.studyGuide.skillsAtAGlance.map((s, si) => (
-                      <li key={s}>
-                        <span>
-                          {si + 1}. {s}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                  <table className="guide-table">
+                    <tbody>
+                      {content.studyGuide.skillsAtAGlance.map((s, si) => (
+                        <tr key={s}>
+                          <td className="num">{si + 1}</td>
+                          <td>{s}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </details>
 
@@ -2644,15 +2645,18 @@ export function UnitPage({
                         <p className="lesson-p" style={{ fontWeight: 600 }}>
                           {ai + 1}.{gi + 1} {g.heading}
                         </p>
-                        <ul className="duty-list guide-list">
-                          {g.items.map((it, ii) => (
-                            <li key={it}>
-                              <span>
-                                {ai + 1}.{gi + 1}.{ii + 1} {it}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
+                        <table className="guide-table">
+                          <tbody>
+                            {g.items.map((it, ii) => (
+                              <tr key={it}>
+                                <td className="num">
+                                  {ai + 1}.{gi + 1}.{ii + 1}
+                                </td>
+                                <td>{it}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
                       </div>
                     ))}
                   </div>
